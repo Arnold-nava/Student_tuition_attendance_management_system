@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="forms\Admin\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Admin\PaymentTransactionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Admin\QRScannerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Admin\TuitionManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Auth\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\student\AttendanceHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\student\MyQRCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\student\PaymentSuccessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\student\StudentDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Auth\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Admin\StudentManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\student\TuitionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
