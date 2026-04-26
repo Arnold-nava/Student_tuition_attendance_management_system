@@ -8,5 +8,10 @@ namespace student_management.models
 {
     internal class User
     {
+        public int id;
+        public string user;
+        public string password;
+        public string role;
+        public string email;
     }
 }

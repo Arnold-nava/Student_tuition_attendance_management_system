@@ -13,6 +13,12 @@
     <Compile Update="forms\Admin\TuitionManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\Auth\ForgotPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Auth\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\Auth\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -26,9 +32,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\student\StudentDashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="forms\Auth\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\Admin\StudentManagementForm.cs">

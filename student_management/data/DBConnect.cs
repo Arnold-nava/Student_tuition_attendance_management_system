@@ -10,7 +10,7 @@ namespace crud
     public class DBConnect
     {
         private MySqlConnection connection = new MySqlConnection(
-            "server=localhost;user=root;database=myproject_act;port=3306;password=;"
+            "server=localhost;user=root;database=tuition_attendance_db;port=3306;password=;"
         );
 
         public MySqlConnection Connection => connection;
