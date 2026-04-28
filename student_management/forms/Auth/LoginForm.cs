@@ -139,7 +139,7 @@ namespace student_management.forms.Auth
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            RegisterForm frm = new RegisterForm();
+            QRScannerForm frm = new QRScannerForm();
             frm.Show();
             this.Hide();
         }

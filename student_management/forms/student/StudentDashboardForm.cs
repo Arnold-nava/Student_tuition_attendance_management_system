@@ -26,7 +26,7 @@ namespace student_management.forms
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
-            PaymentTransactionsForm frm = new PaymentTransactionsForm();
+            TuitionManagementForm frm = new TuitionManagementForm();
             frm.Show();
             this.Hide();
         }
@@ -284,7 +284,7 @@ namespace student_management.forms
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PaymentTransactionsForm frm = new PaymentTransactionsForm();
+            TuitionManagementForm frm = new TuitionManagementForm();
             frm.Show();
             this.Hide();
         }

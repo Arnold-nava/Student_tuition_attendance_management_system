@@ -7,9 +7,6 @@
     <Compile Update="forms\Admin\CourseTuitionmanagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\Admin\PaymentTransactionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="forms\Admin\QRScannerForm.cs">
       <SubType>Form</SubType>
     </Compile>

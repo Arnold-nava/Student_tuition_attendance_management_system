@@ -191,11 +191,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Gray;
-            label3.Location = new Point(12, 68);
+            label3.Location = new Point(12, 66);
             label3.Name = "label3";
-            label3.Size = new Size(157, 21);
+            label3.Size = new Size(125, 17);
             label3.TabIndex = 1;
             label3.Text = "Remaining balance";
             // 
@@ -203,7 +203,7 @@
             // 
             lblBalance.AutoSize = true;
             lblBalance.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBalance.Location = new Point(12, 34);
+            lblBalance.Location = new Point(12, 36);
             lblBalance.Name = "lblBalance";
             lblBalance.Size = new Size(102, 32);
             lblBalance.TabIndex = 1;

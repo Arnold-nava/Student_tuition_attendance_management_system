@@ -205,7 +205,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "CourseTuitionmanagementForm";
-            Text = "CourseTuitionmanagementForm";
+            Text = "f";
             ((System.ComponentModel.ISupportInitialize)dgvStudents).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
