@@ -119,56 +119,11 @@ namespace student_management.forms.Admin
             }
         }
 
-        public void LoadRecentPayments()
-        {
-            DBConnect db = new DBConnect();
-
-            try
-            {
-                db.Open();
-
-                // HELPED BY A.I
-                string query = @"
-                SELECT 
-                s.student_number AS Student_No,
-                CONCAT(s.first_name, ' ', s.last_name) AS Student,
-                p.amount_paid AS Amount,
-                p.payment_method AS Method,
-                p.status AS Status,
-                    p.paid_at AS Date_Paid
-                FROM payments p
-                INNER JOIN students s ON p.student_id = s.id
-                ORDER BY p.paid_at DESC
-                LIMIT 10";
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.Connection);
-                DataTable table = new DataTable();
-
-                adapter.Fill(table);
-
-                dgvRecentPayments.DataSource = table;
-
-                dgvRecentPayments.Height = dgvRecentPayments.ColumnHeadersHeight;
-
-                foreach (DataGridViewRow row in dgvRecentPayments.Rows)
-                {
-                    dgvRecentPayments.Height += row.Height;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading payments: " + ex.Message);
-            }
-            finally
-            {
-                db.Close();
-            }
-        }
+  
         private void AdminDashboardForm_Load(object sender, EventArgs e)
         {
             LoadTotalStudents();
             LoadTotalRevenue();
-            LoadRecentPayments();
        
         }
     }
