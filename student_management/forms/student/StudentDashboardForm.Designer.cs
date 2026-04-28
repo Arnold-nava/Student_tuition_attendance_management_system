@@ -51,13 +51,12 @@
             btnQRCode = new FontAwesome.Sharp.IconButton();
             btnAttendanceHistory = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
-            dataGridView1 = new DataGridView();
             linkLabel2 = new LinkLabel();
+            panelRecentPayments = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -69,17 +68,19 @@
             panel1.Controls.Add(btnQR);
             panel1.Controls.Add(btnAttendance);
             panel1.Controls.Add(btnHome);
-            panel1.Location = new Point(1, -3);
+            panel1.Location = new Point(1, -2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(106, 550);
+            panel1.Size = new Size(93, 412);
             panel1.TabIndex = 0;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(17, 509);
+            button1.Location = new Point(15, 382);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(75, 27);
+            button1.Size = new Size(66, 20);
             button1.TabIndex = 2;
             button1.Text = "Log out";
             button1.UseVisualStyleBackColor = true;
@@ -93,9 +94,10 @@
             btnPayment.IconColor = Color.White;
             btnPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPayment.IconSize = 35;
-            btnPayment.Location = new Point(17, 98);
+            btnPayment.Location = new Point(15, 74);
+            btnPayment.Margin = new Padding(3, 2, 3, 2);
             btnPayment.Name = "btnPayment";
-            btnPayment.Size = new Size(75, 77);
+            btnPayment.Size = new Size(66, 58);
             btnPayment.TabIndex = 1;
             btnPayment.UseVisualStyleBackColor = true;
             btnPayment.Click += btnPayment_Click;
@@ -108,9 +110,10 @@
             btnPaymentHistory.IconColor = Color.White;
             btnPaymentHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPaymentHistory.IconSize = 35;
-            btnPaymentHistory.Location = new Point(17, 347);
+            btnPaymentHistory.Location = new Point(15, 260);
+            btnPaymentHistory.Margin = new Padding(3, 2, 3, 2);
             btnPaymentHistory.Name = "btnPaymentHistory";
-            btnPaymentHistory.Size = new Size(75, 77);
+            btnPaymentHistory.Size = new Size(66, 58);
             btnPaymentHistory.TabIndex = 1;
             btnPaymentHistory.UseVisualStyleBackColor = true;
             btnPaymentHistory.Click += iconButton4_Click;
@@ -123,9 +126,10 @@
             btnQR.IconColor = Color.White;
             btnQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnQR.IconSize = 35;
-            btnQR.Location = new Point(17, 264);
+            btnQR.Location = new Point(15, 198);
+            btnQR.Margin = new Padding(3, 2, 3, 2);
             btnQR.Name = "btnQR";
-            btnQR.Size = new Size(75, 77);
+            btnQR.Size = new Size(66, 58);
             btnQR.TabIndex = 1;
             btnQR.UseVisualStyleBackColor = true;
             btnQR.Click += btnQR_Click;
@@ -138,9 +142,10 @@
             btnAttendance.IconColor = Color.White;
             btnAttendance.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAttendance.IconSize = 35;
-            btnAttendance.Location = new Point(17, 181);
+            btnAttendance.Location = new Point(15, 136);
+            btnAttendance.Margin = new Padding(3, 2, 3, 2);
             btnAttendance.Name = "btnAttendance";
-            btnAttendance.Size = new Size(75, 77);
+            btnAttendance.Size = new Size(66, 58);
             btnAttendance.TabIndex = 1;
             btnAttendance.UseVisualStyleBackColor = true;
             btnAttendance.Click += btnAttendance_Click;
@@ -153,9 +158,10 @@
             btnHome.IconColor = Color.White;
             btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHome.IconSize = 35;
-            btnHome.Location = new Point(17, 15);
+            btnHome.Location = new Point(15, 11);
+            btnHome.Margin = new Padding(3, 2, 3, 2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(75, 77);
+            btnHome.Size = new Size(66, 58);
             btnHome.TabIndex = 1;
             btnHome.UseVisualStyleBackColor = true;
             btnHome.Click += btnHome_Click;
@@ -164,7 +170,7 @@
             // 
             lblUser.AutoSize = true;
             lblUser.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUser.Location = new Point(119, 20);
+            lblUser.Location = new Point(104, 15);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(199, 32);
             lblUser.TabIndex = 1;
@@ -176,9 +182,10 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(lblBalance);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(123, 67);
+            panel2.Location = new Point(108, 50);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(186, 124);
+            panel2.Size = new Size(163, 93);
             panel2.TabIndex = 2;
             // 
             // label3
@@ -186,7 +193,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Gray;
-            label3.Location = new Point(14, 91);
+            label3.Location = new Point(12, 68);
             label3.Name = "label3";
             label3.Size = new Size(157, 21);
             label3.TabIndex = 1;
@@ -196,7 +203,7 @@
             // 
             lblBalance.AutoSize = true;
             lblBalance.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBalance.Location = new Point(14, 46);
+            lblBalance.Location = new Point(12, 34);
             lblBalance.Name = "lblBalance";
             lblBalance.Size = new Size(102, 32);
             lblBalance.TabIndex = 1;
@@ -206,7 +213,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(14, 15);
+            label1.Location = new Point(12, 11);
             label1.Name = "label1";
             label1.Size = new Size(80, 25);
             label1.TabIndex = 1;
@@ -217,16 +224,17 @@
             panel3.BackColor = Color.Azure;
             panel3.Controls.Add(lblNextDue);
             panel3.Controls.Add(label6);
-            panel3.Location = new Point(336, 67);
+            panel3.Location = new Point(294, 50);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(186, 124);
+            panel3.Size = new Size(163, 93);
             panel3.TabIndex = 2;
             // 
             // lblNextDue
             // 
             lblNextDue.AutoSize = true;
             lblNextDue.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNextDue.Location = new Point(14, 46);
+            lblNextDue.Location = new Point(12, 34);
             lblNextDue.Name = "lblNextDue";
             lblNextDue.Size = new Size(67, 32);
             lblNextDue.TabIndex = 1;
@@ -236,7 +244,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(14, 15);
+            label6.Location = new Point(12, 11);
             label6.Name = "label6";
             label6.Size = new Size(96, 25);
             label6.TabIndex = 1;
@@ -247,9 +255,10 @@
             panel4.BackColor = Color.OldLace;
             panel4.Controls.Add(lblStatus);
             panel4.Controls.Add(label9);
-            panel4.Location = new Point(552, 67);
+            panel4.Location = new Point(483, 50);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(186, 124);
+            panel4.Size = new Size(163, 93);
             panel4.TabIndex = 2;
             panel4.Paint += panel4_Paint;
             // 
@@ -257,7 +266,7 @@
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(14, 46);
+            lblStatus.Location = new Point(12, 34);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(83, 32);
             lblStatus.TabIndex = 1;
@@ -267,7 +276,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(14, 15);
+            label9.Location = new Point(12, 11);
             label9.Name = "label9";
             label9.Size = new Size(67, 25);
             label9.TabIndex = 1;
@@ -277,7 +286,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(122, 209);
+            label2.Location = new Point(107, 157);
             label2.Name = "label2";
             label2.Size = new Size(172, 32);
             label2.TabIndex = 1;
@@ -293,9 +302,10 @@
             btnPaynow.IconColor = Color.DodgerBlue;
             btnPaynow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPaynow.IconSize = 45;
-            btnPaynow.Location = new Point(126, 262);
+            btnPaynow.Location = new Point(110, 196);
+            btnPaynow.Margin = new Padding(3, 2, 3, 2);
             btnPaynow.Name = "btnPaynow";
-            btnPaynow.Size = new Size(186, 111);
+            btnPaynow.Size = new Size(163, 83);
             btnPaynow.TabIndex = 1;
             btnPaynow.Text = "Pay now";
             btnPaynow.TextAlign = ContentAlignment.BottomCenter;
@@ -312,9 +322,10 @@
             btnQRCode.IconColor = Color.DodgerBlue;
             btnQRCode.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnQRCode.IconSize = 45;
-            btnQRCode.Location = new Point(339, 262);
+            btnQRCode.Location = new Point(297, 196);
+            btnQRCode.Margin = new Padding(3, 2, 3, 2);
             btnQRCode.Name = "btnQRCode";
-            btnQRCode.Size = new Size(186, 111);
+            btnQRCode.Size = new Size(163, 83);
             btnQRCode.TabIndex = 1;
             btnQRCode.Text = "My QR Code";
             btnQRCode.TextAlign = ContentAlignment.BottomCenter;
@@ -331,9 +342,10 @@
             btnAttendanceHistory.IconColor = Color.DodgerBlue;
             btnAttendanceHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAttendanceHistory.IconSize = 45;
-            btnAttendanceHistory.Location = new Point(555, 262);
+            btnAttendanceHistory.Location = new Point(486, 196);
+            btnAttendanceHistory.Margin = new Padding(3, 2, 3, 2);
             btnAttendanceHistory.Name = "btnAttendanceHistory";
-            btnAttendanceHistory.Size = new Size(186, 111);
+            btnAttendanceHistory.Size = new Size(163, 83);
             btnAttendanceHistory.TabIndex = 1;
             btnAttendanceHistory.Text = "Attendance History";
             btnAttendanceHistory.TextAlign = ContentAlignment.BottomCenter;
@@ -344,39 +356,38 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(126, 402);
+            label4.Location = new Point(110, 302);
             label4.Name = "label4";
             label4.Size = new Size(141, 21);
             label4.TabIndex = 1;
             label4.Text = "Recent Payments";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(126, 431);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(612, 102);
-            dataGridView1.TabIndex = 3;
-            // 
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
             linkLabel2.LinkColor = Color.DodgerBlue;
-            linkLabel2.Location = new Point(672, 403);
+            linkLabel2.Location = new Point(588, 302);
             linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(61, 20);
+            linkLabel2.Size = new Size(47, 15);
             linkLabel2.TabIndex = 14;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "View all";
             linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
+            // panelRecentPayments
+            // 
+            panelRecentPayments.Location = new Point(116, 333);
+            panelRecentPayments.Name = "panelRecentPayments";
+            panelRecentPayments.Size = new Size(519, 67);
+            panelRecentPayments.TabIndex = 15;
+            // 
             // StudentDashboardForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(757, 545);
+            ClientSize = new Size(662, 409);
+            Controls.Add(panelRecentPayments);
             Controls.Add(linkLabel2);
-            Controls.Add(dataGridView1);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -387,6 +398,7 @@
             Controls.Add(btnQRCode);
             Controls.Add(btnPaynow);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "StudentDashboardForm";
             Text = "DashboardForm";
             Load += StudentDashboardForm_Load;
@@ -397,7 +409,6 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -427,7 +438,7 @@
         private FontAwesome.Sharp.IconButton btnQRCode;
         private FontAwesome.Sharp.IconButton btnAttendanceHistory;
         private Label label4;
-        private DataGridView dataGridView1;
         private LinkLabel linkLabel2;
+        private Panel panelRecentPayments;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace student_management.forms
+﻿namespace student_management.forms.Admin
 {
-    partial class StudentManagementForm
+    partial class PaymentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,10 +35,9 @@
             iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             btnHome = new FontAwesome.Sharp.IconButton();
-            label1 = new Label();
-            textBox1 = new TextBox();
             dgvStudents = new DataGridView();
-            lblTotal = new Label();
+            textBox1 = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
@@ -52,11 +51,11 @@
             panel1.Controls.Add(iconButton3);
             panel1.Controls.Add(iconButton1);
             panel1.Controls.Add(btnHome);
-            panel1.Location = new Point(1, 1);
+            panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(150, 414);
-            panel1.TabIndex = 2;
+            panel1.Size = new Size(150, 413);
+            panel1.TabIndex = 3;
             // 
             // button1
             // 
@@ -169,55 +168,44 @@
             btnHome.TextAlign = ContentAlignment.MiddleRight;
             btnHome.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // dgvStudents
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(173, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(206, 25);
-            label1.TabIndex = 4;
-            label1.Text = "Student Management";
+            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStudents.Location = new Point(168, 78);
+            dgvStudents.Name = "dgvStudents";
+            dgvStudents.Size = new Size(619, 303);
+            dgvStudents.TabIndex = 10;
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(581, 31);
+            textBox1.Location = new Point(583, 31);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Search";
             textBox1.Size = new Size(207, 25);
-            textBox1.TabIndex = 6;
+            textBox1.TabIndex = 9;
             // 
-            // dgvStudents
+            // label1
             // 
-            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.Location = new Point(166, 78);
-            dgvStudents.Name = "dgvStudents";
-            dgvStudents.Size = new Size(619, 303);
-            dgvStudents.TabIndex = 7;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(175, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(161, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Payment History";
             // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(166, 389);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(48, 21);
-            lblTotal.TabIndex = 8;
-            lblTotal.Text = "Total";
-            // 
-            // StudentManagementForm
+            // TuitionManagementForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 413);
-            Controls.Add(lblTotal);
+            ClientSize = new Size(800, 409);
             Controls.Add(dgvStudents);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(panel1);
-            Name = "StudentManagementForm";
-            Text = "StudentForm";
+            Name = "TuitionManagementForm";
+            Text = "TuitionManagementForm";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvStudents).EndInit();
             ResumeLayout(false);
@@ -233,9 +221,8 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnHome;
-        private Label label1;
-        private TextBox textBox1;
         private DataGridView dgvStudents;
-        private Label lblTotal;
+        private TextBox textBox1;
+        private Label label1;
     }
 }

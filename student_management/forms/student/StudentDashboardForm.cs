@@ -31,6 +31,8 @@ namespace student_management.forms
             this.Hide();
         }
 
+
+
         public void LoadTuitionInfo()
         {
             DBConnect db = new DBConnect();
@@ -117,12 +119,104 @@ namespace student_management.forms
             }
         }
 
+        public void LoadRecentPayments()
+        {
+            panelRecentPayments.Controls.Clear();
+
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = @"
+            SELECT 
+                i.month_name,
+                p.amount_paid,
+                p.status,
+                p.paid_at
+            FROM payments p
+            INNER JOIN installments i ON p.installment_id = i.id
+            WHERE p.student_id = @student_id
+            ORDER BY p.paid_at DESC
+            LIMIT 5";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@student_id", Session.studentId);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                int y = 0;
+
+                // HELPED BY A.I
+                while (reader.Read())
+                {
+                    Panel row = new Panel();
+                    row.Width = panelRecentPayments.Width - 10;
+                    row.Height = 35;
+                    row.Left = 0;
+                    row.Top = y;
+
+                    Label lblMonth = new Label();
+                    lblMonth.Text = reader["month_name"].ToString();
+                    lblMonth.Left = 10;
+                    lblMonth.Top = 8;
+                    lblMonth.Width = 100;
+
+                    Label lblAmount = new Label();
+                    decimal amount = Convert.ToDecimal(reader["amount_paid"]);
+                    lblAmount.Text = "₱" + amount.ToString("N2");
+                    lblAmount.Left = 130;
+                    lblAmount.Top = 8;
+                    lblAmount.Width = 100;
+
+                    Label lblStatus = new Label();
+                    lblStatus.Text = reader["status"].ToString();
+                    lblStatus.Left = 250;
+                    lblStatus.Top = 8;
+                    lblStatus.Width = 80;
+
+                    if (lblStatus.Text == "Success")
+                    {
+                        lblStatus.ForeColor = Color.Green;
+                    }
+
+                    Label lblDate = new Label();
+                    DateTime paidDate = Convert.ToDateTime(reader["paid_at"]);
+                    lblDate.Text = paidDate.ToString("MMM dd, yyyy");
+                    lblDate.Left = 350;
+                    lblDate.Top = 8;
+                    lblDate.Width = 120;
+
+                    row.Controls.Add(lblMonth);
+                    row.Controls.Add(lblAmount);
+                    row.Controls.Add(lblStatus);
+                    row.Controls.Add(lblDate);
+
+                    panelRecentPayments.Controls.Add(row);
+
+                    y = y + 40;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading recent payments: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
         private void StudentDashboardForm_Load(object sender, EventArgs e)
         {
             lblUser.Text = "Hello, " + Session.fullName + "! 👋";
 
             LoadTuitionInfo();
             LoadNextDue();
+            LoadRecentPayments();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)

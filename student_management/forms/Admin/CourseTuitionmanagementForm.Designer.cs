@@ -1,6 +1,6 @@
-﻿namespace student_management.forms
+﻿namespace student_management.forms.Admin
 {
-    partial class StudentManagementForm
+    partial class CourseTuitionmanagementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dgvStudents = new DataGridView();
+            textBox1 = new TextBox();
+            label1 = new Label();
             panel1 = new Panel();
             button1 = new Button();
             iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -35,13 +38,36 @@
             iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             btnHome = new FontAwesome.Sharp.IconButton();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            dgvStudents = new DataGridView();
-            lblTotal = new Label();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // dgvStudents
+            // 
+            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStudents.Location = new Point(165, 78);
+            dgvStudents.Name = "dgvStudents";
+            dgvStudents.Size = new Size(619, 321);
+            dgvStudents.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(580, 31);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Search";
+            textBox1.Size = new Size(207, 25);
+            textBox1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(172, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(265, 25);
+            label1.TabIndex = 10;
+            label1.Text = "Course Tuition Management";
             // 
             // panel1
             // 
@@ -52,16 +78,16 @@
             panel1.Controls.Add(iconButton3);
             panel1.Controls.Add(iconButton1);
             panel1.Controls.Add(btnHome);
-            panel1.Location = new Point(1, 1);
+            panel1.Location = new Point(0, 1);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(150, 414);
-            panel1.TabIndex = 2;
+            panel1.TabIndex = 9;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(41, 361);
+            button1.Location = new Point(34, 361);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(66, 30);
@@ -80,7 +106,7 @@
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 35;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(15, 251);
+            iconButton4.Location = new Point(8, 251);
             iconButton4.Margin = new Padding(3, 2, 3, 2);
             iconButton4.Name = "iconButton4";
             iconButton4.Size = new Size(118, 58);
@@ -100,7 +126,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 35;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(15, 136);
+            iconButton2.Location = new Point(8, 136);
             iconButton2.Margin = new Padding(3, 2, 3, 2);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(118, 58);
@@ -120,7 +146,7 @@
             iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 35;
             iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(15, 189);
+            iconButton3.Location = new Point(8, 189);
             iconButton3.Margin = new Padding(3, 2, 3, 2);
             iconButton3.Name = "iconButton3";
             iconButton3.Size = new Size(118, 58);
@@ -140,7 +166,7 @@
             iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 35;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(15, 74);
+            iconButton1.Location = new Point(8, 74);
             iconButton1.Margin = new Padding(3, 2, 3, 2);
             iconButton1.Name = "iconButton1";
             iconButton1.Size = new Size(118, 58);
@@ -160,7 +186,7 @@
             btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHome.IconSize = 35;
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(15, 12);
+            btnHome.Location = new Point(8, 12);
             btnHome.Margin = new Padding(3, 2, 3, 2);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(118, 58);
@@ -169,63 +195,28 @@
             btnHome.TextAlign = ContentAlignment.MiddleRight;
             btnHome.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(173, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(206, 25);
-            label1.TabIndex = 4;
-            label1.Text = "Student Management";
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(581, 31);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Search";
-            textBox1.Size = new Size(207, 25);
-            textBox1.TabIndex = 6;
-            // 
-            // dgvStudents
-            // 
-            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.Location = new Point(166, 78);
-            dgvStudents.Name = "dgvStudents";
-            dgvStudents.Size = new Size(619, 303);
-            dgvStudents.TabIndex = 7;
-            // 
-            // lblTotal
-            // 
-            lblTotal.AutoSize = true;
-            lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(166, 389);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(48, 21);
-            lblTotal.TabIndex = 8;
-            lblTotal.Text = "Total";
-            // 
-            // StudentManagementForm
+            // CourseTuitionmanagementForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 413);
-            Controls.Add(lblTotal);
+            ClientSize = new Size(800, 411);
             Controls.Add(dgvStudents);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(panel1);
-            Name = "StudentManagementForm";
-            Text = "StudentForm";
-            panel1.ResumeLayout(false);
+            Name = "CourseTuitionmanagementForm";
+            Text = "CourseTuitionmanagementForm";
             ((System.ComponentModel.ISupportInitialize)dgvStudents).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private DataGridView dgvStudents;
+        private TextBox textBox1;
+        private Label label1;
         private Panel panel1;
         private Button button1;
         private FontAwesome.Sharp.IconButton iconButton4;
@@ -233,9 +224,5 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnHome;
-        private Label label1;
-        private TextBox textBox1;
-        private DataGridView dgvStudents;
-        private Label lblTotal;
     }
 }
