@@ -30,109 +30,135 @@
         {
             panel1 = new Panel();
             button1 = new Button();
-            iconButton5 = new FontAwesome.Sharp.IconButton();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnPayment = new FontAwesome.Sharp.IconButton();
+            btnPaymentHistory = new FontAwesome.Sharp.IconButton();
+            btnQR = new FontAwesome.Sharp.IconButton();
+            btnAttendance = new FontAwesome.Sharp.IconButton();
+            btnHome = new FontAwesome.Sharp.IconButton();
             lblUser = new Label();
+            panel2 = new Panel();
+            label3 = new Label();
+            lblBalance = new Label();
+            label1 = new Label();
+            panel3 = new Panel();
+            lblNextDue = new Label();
+            label6 = new Label();
+            panel4 = new Panel();
+            lblStatus = new Label();
+            label9 = new Label();
+            label2 = new Label();
+            btnPaynow = new FontAwesome.Sharp.IconButton();
+            btnQRCode = new FontAwesome.Sharp.IconButton();
+            btnAttendanceHistory = new FontAwesome.Sharp.IconButton();
+            label4 = new Label();
+            dataGridView1 = new DataGridView();
+            linkLabel2 = new LinkLabel();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.MidnightBlue;
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(iconButton5);
-            panel1.Controls.Add(iconButton4);
-            panel1.Controls.Add(iconButton3);
-            panel1.Controls.Add(iconButton2);
-            panel1.Controls.Add(iconButton1);
-            panel1.Location = new Point(2, -8);
+            panel1.Controls.Add(btnPayment);
+            panel1.Controls.Add(btnPaymentHistory);
+            panel1.Controls.Add(btnQR);
+            panel1.Controls.Add(btnAttendance);
+            panel1.Controls.Add(btnHome);
+            panel1.Location = new Point(1, -3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(97, 557);
+            panel1.Size = new Size(106, 550);
             panel1.TabIndex = 0;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(14, 514);
+            button1.Location = new Point(17, 509);
             button1.Name = "button1";
-            button1.Size = new Size(71, 27);
+            button1.Size = new Size(75, 27);
             button1.TabIndex = 2;
             button1.Text = "Log out";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // iconButton5
+            // btnPayment
             // 
-            iconButton5.FlatAppearance.BorderSize = 0;
-            iconButton5.FlatStyle = FlatStyle.Flat;
-            iconButton5.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
-            iconButton5.IconColor = Color.White;
-            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton5.IconSize = 35;
-            iconButton5.Location = new Point(10, 121);
-            iconButton5.Name = "iconButton5";
-            iconButton5.Size = new Size(75, 77);
-            iconButton5.TabIndex = 1;
-            iconButton5.UseVisualStyleBackColor = true;
+            btnPayment.FlatAppearance.BorderSize = 0;
+            btnPayment.FlatStyle = FlatStyle.Flat;
+            btnPayment.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
+            btnPayment.IconColor = Color.White;
+            btnPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPayment.IconSize = 35;
+            btnPayment.Location = new Point(17, 98);
+            btnPayment.Name = "btnPayment";
+            btnPayment.Size = new Size(75, 77);
+            btnPayment.TabIndex = 1;
+            btnPayment.UseVisualStyleBackColor = true;
+            btnPayment.Click += btnPayment_Click;
             // 
-            // iconButton4
+            // btnPaymentHistory
             // 
-            iconButton4.FlatAppearance.BorderSize = 0;
-            iconButton4.FlatStyle = FlatStyle.Flat;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            iconButton4.IconColor = Color.White;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 35;
-            iconButton4.Location = new Point(10, 370);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Size = new Size(75, 77);
-            iconButton4.TabIndex = 1;
-            iconButton4.UseVisualStyleBackColor = true;
-            iconButton4.Click += iconButton4_Click;
+            btnPaymentHistory.FlatAppearance.BorderSize = 0;
+            btnPaymentHistory.FlatStyle = FlatStyle.Flat;
+            btnPaymentHistory.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            btnPaymentHistory.IconColor = Color.White;
+            btnPaymentHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPaymentHistory.IconSize = 35;
+            btnPaymentHistory.Location = new Point(17, 347);
+            btnPaymentHistory.Name = "btnPaymentHistory";
+            btnPaymentHistory.Size = new Size(75, 77);
+            btnPaymentHistory.TabIndex = 1;
+            btnPaymentHistory.UseVisualStyleBackColor = true;
+            btnPaymentHistory.Click += iconButton4_Click;
             // 
-            // iconButton3
+            // btnQR
             // 
-            iconButton3.FlatAppearance.BorderSize = 0;
-            iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 35;
-            iconButton3.Location = new Point(10, 287);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(75, 77);
-            iconButton3.TabIndex = 1;
-            iconButton3.UseVisualStyleBackColor = true;
+            btnQR.FlatAppearance.BorderSize = 0;
+            btnQR.FlatStyle = FlatStyle.Flat;
+            btnQR.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
+            btnQR.IconColor = Color.White;
+            btnQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnQR.IconSize = 35;
+            btnQR.Location = new Point(17, 264);
+            btnQR.Name = "btnQR";
+            btnQR.Size = new Size(75, 77);
+            btnQR.TabIndex = 1;
+            btnQR.UseVisualStyleBackColor = true;
+            btnQR.Click += btnQR_Click;
             // 
-            // iconButton2
+            // btnAttendance
             // 
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 35;
-            iconButton2.Location = new Point(10, 204);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(75, 77);
-            iconButton2.TabIndex = 1;
-            iconButton2.UseVisualStyleBackColor = true;
+            btnAttendance.FlatAppearance.BorderSize = 0;
+            btnAttendance.FlatStyle = FlatStyle.Flat;
+            btnAttendance.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            btnAttendance.IconColor = Color.White;
+            btnAttendance.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAttendance.IconSize = 35;
+            btnAttendance.Location = new Point(17, 181);
+            btnAttendance.Name = "btnAttendance";
+            btnAttendance.Size = new Size(75, 77);
+            btnAttendance.TabIndex = 1;
+            btnAttendance.UseVisualStyleBackColor = true;
+            btnAttendance.Click += btnAttendance_Click;
             // 
-            // iconButton1
+            // btnHome
             // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 35;
-            iconButton1.Location = new Point(10, 38);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(75, 77);
-            iconButton1.TabIndex = 1;
-            iconButton1.UseVisualStyleBackColor = true;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            btnHome.IconColor = Color.White;
+            btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHome.IconSize = 35;
+            btnHome.Location = new Point(17, 15);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(75, 77);
+            btnHome.TabIndex = 1;
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
             // 
             // lblUser
             // 
@@ -140,21 +166,238 @@
             lblUser.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUser.Location = new Point(119, 20);
             lblUser.Name = "lblUser";
-            lblUser.Size = new Size(83, 32);
+            lblUser.Size = new Size(199, 32);
             lblUser.TabIndex = 1;
-            lblUser.Text = "label1";
+            lblUser.Text = "Welcome Guest!";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.LightBlue;
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(lblBalance);
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(123, 67);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(186, 124);
+            panel2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Gray;
+            label3.Location = new Point(14, 91);
+            label3.Name = "label3";
+            label3.Size = new Size(157, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Remaining balance";
+            // 
+            // lblBalance
+            // 
+            lblBalance.AutoSize = true;
+            lblBalance.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBalance.Location = new Point(14, 46);
+            lblBalance.Name = "lblBalance";
+            lblBalance.Size = new Size(102, 32);
+            lblBalance.TabIndex = 1;
+            lblBalance.Text = "Balance";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(14, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 25);
+            label1.TabIndex = 1;
+            label1.Text = "Balance";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Azure;
+            panel3.Controls.Add(lblNextDue);
+            panel3.Controls.Add(label6);
+            panel3.Location = new Point(336, 67);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(186, 124);
+            panel3.TabIndex = 2;
+            // 
+            // lblNextDue
+            // 
+            lblNextDue.AutoSize = true;
+            lblNextDue.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNextDue.Location = new Point(14, 46);
+            lblNextDue.Name = "lblNextDue";
+            lblNextDue.Size = new Size(67, 32);
+            lblNextDue.TabIndex = 1;
+            lblNextDue.Text = "Date";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(14, 15);
+            label6.Name = "label6";
+            label6.Size = new Size(96, 25);
+            label6.TabIndex = 1;
+            label6.Text = "Next Due";
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.OldLace;
+            panel4.Controls.Add(lblStatus);
+            panel4.Controls.Add(label9);
+            panel4.Location = new Point(552, 67);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(186, 124);
+            panel4.TabIndex = 2;
+            panel4.Paint += panel4_Paint;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.Location = new Point(14, 46);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(83, 32);
+            lblStatus.TabIndex = 1;
+            lblStatus.Text = "Status";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(14, 15);
+            label9.Name = "label9";
+            label9.Size = new Size(67, 25);
+            label9.TabIndex = 1;
+            label9.Text = "Status";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(122, 209);
+            label2.Name = "label2";
+            label2.Size = new Size(172, 32);
+            label2.TabIndex = 1;
+            label2.Text = "Quick Actions";
+            // 
+            // btnPaynow
+            // 
+            btnPaynow.FlatAppearance.BorderColor = Color.LightSlateGray;
+            btnPaynow.FlatAppearance.BorderSize = 2;
+            btnPaynow.FlatStyle = FlatStyle.Flat;
+            btnPaynow.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPaynow.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
+            btnPaynow.IconColor = Color.DodgerBlue;
+            btnPaynow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPaynow.IconSize = 45;
+            btnPaynow.Location = new Point(126, 262);
+            btnPaynow.Name = "btnPaynow";
+            btnPaynow.Size = new Size(186, 111);
+            btnPaynow.TabIndex = 1;
+            btnPaynow.Text = "Pay now";
+            btnPaynow.TextAlign = ContentAlignment.BottomCenter;
+            btnPaynow.UseVisualStyleBackColor = true;
+            btnPaynow.Click += btnPaynow_Click;
+            // 
+            // btnQRCode
+            // 
+            btnQRCode.FlatAppearance.BorderColor = Color.LightSlateGray;
+            btnQRCode.FlatAppearance.BorderSize = 2;
+            btnQRCode.FlatStyle = FlatStyle.Flat;
+            btnQRCode.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQRCode.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
+            btnQRCode.IconColor = Color.DodgerBlue;
+            btnQRCode.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnQRCode.IconSize = 45;
+            btnQRCode.Location = new Point(339, 262);
+            btnQRCode.Name = "btnQRCode";
+            btnQRCode.Size = new Size(186, 111);
+            btnQRCode.TabIndex = 1;
+            btnQRCode.Text = "My QR Code";
+            btnQRCode.TextAlign = ContentAlignment.BottomCenter;
+            btnQRCode.UseVisualStyleBackColor = true;
+            btnQRCode.Click += btnQRCode_Click;
+            // 
+            // btnAttendanceHistory
+            // 
+            btnAttendanceHistory.FlatAppearance.BorderColor = Color.LightSlateGray;
+            btnAttendanceHistory.FlatAppearance.BorderSize = 2;
+            btnAttendanceHistory.FlatStyle = FlatStyle.Flat;
+            btnAttendanceHistory.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAttendanceHistory.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            btnAttendanceHistory.IconColor = Color.DodgerBlue;
+            btnAttendanceHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnAttendanceHistory.IconSize = 45;
+            btnAttendanceHistory.Location = new Point(555, 262);
+            btnAttendanceHistory.Name = "btnAttendanceHistory";
+            btnAttendanceHistory.Size = new Size(186, 111);
+            btnAttendanceHistory.TabIndex = 1;
+            btnAttendanceHistory.Text = "Attendance History";
+            btnAttendanceHistory.TextAlign = ContentAlignment.BottomCenter;
+            btnAttendanceHistory.UseVisualStyleBackColor = true;
+            btnAttendanceHistory.Click += iconButton8_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(126, 402);
+            label4.Name = "label4";
+            label4.Size = new Size(141, 21);
+            label4.TabIndex = 1;
+            label4.Text = "Recent Payments";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(126, 431);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(612, 102);
+            dataGridView1.TabIndex = 3;
+            // 
+            // linkLabel2
+            // 
+            linkLabel2.AutoSize = true;
+            linkLabel2.LinkColor = Color.DodgerBlue;
+            linkLabel2.Location = new Point(672, 403);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new Size(61, 20);
+            linkLabel2.TabIndex = 14;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "View all";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // StudentDashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 545);
+            ClientSize = new Size(757, 545);
+            Controls.Add(linkLabel2);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(label4);
+            Controls.Add(label2);
             Controls.Add(lblUser);
+            Controls.Add(btnAttendanceHistory);
+            Controls.Add(btnQRCode);
+            Controls.Add(btnPaynow);
             Controls.Add(panel1);
             Name = "StudentDashboardForm";
             Text = "DashboardForm";
             Load += StudentDashboardForm_Load;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,12 +405,29 @@
         #endregion
 
         private Panel panel1;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnHome;
         private Button button1;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnPayment;
+        private FontAwesome.Sharp.IconButton btnPaymentHistory;
+        private FontAwesome.Sharp.IconButton btnQR;
+        private FontAwesome.Sharp.IconButton btnAttendance;
         private Label lblUser;
+        private Panel panel2;
+        private Label lblBalance;
+        private Label label1;
+        private Label label3;
+        private Panel panel3;
+        private Label lblNextDue;
+        private Label label6;
+        private Panel panel4;
+        private Label lblStatus;
+        private Label label9;
+        private Label label2;
+        private FontAwesome.Sharp.IconButton btnPaynow;
+        private FontAwesome.Sharp.IconButton btnQRCode;
+        private FontAwesome.Sharp.IconButton btnAttendanceHistory;
+        private Label label4;
+        private DataGridView dataGridView1;
+        private LinkLabel linkLabel2;
     }
 }
