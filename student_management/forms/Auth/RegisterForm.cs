@@ -52,6 +52,7 @@ namespace student_management.forms.Auth
                     Session.semester = reader["semester"].ToString();
                     Session.year = reader["year_level"].ToString();
                     Session.section = reader["section"].ToString();
+                    Session.studentNumber = reader["student_number"].ToString();
                 }
 
                 reader.Close();
@@ -103,16 +104,18 @@ namespace student_management.forms.Auth
                 return;
             }
 
-            if (password != confirmPass)
-            {
-                MessageBox.Show("Password missmatch!", "error!");
-                return;
-            }
+            
 
             DBConnect db = new DBConnect();
 
             try
             {
+                if (password != confirmPass)
+                {
+                    MessageBox.Show("Password missmatch!", "error!");
+                    return;
+                }
+
                 db.Open();
 
                 

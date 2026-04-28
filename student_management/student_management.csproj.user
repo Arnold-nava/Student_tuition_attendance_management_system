@@ -7,10 +7,13 @@
     <Compile Update="forms\Admin\CourseTuitionmanagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\Admin\QRScannerForm.cs">
+    <Compile Update="forms\Admin\PaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\Admin\PaymentForm.cs">
+    <Compile Update="forms\Admin\QRCodeScannerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Admin\TuitionManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\Auth\ForgotPasswordForm.cs">

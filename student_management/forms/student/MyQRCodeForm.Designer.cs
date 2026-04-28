@@ -36,12 +36,11 @@
             btnAttendance = new FontAwesome.Sharp.IconButton();
             btnHome = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
+            lblStudentNumber = new Label();
+            pictureBoxQR = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQR).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -53,19 +52,17 @@
             panel1.Controls.Add(btnQR);
             panel1.Controls.Add(btnAttendance);
             panel1.Controls.Add(btnHome);
-            panel1.Location = new Point(1, 2);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(1, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(93, 412);
+            panel1.Size = new Size(106, 549);
             panel1.TabIndex = 2;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(15, 382);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(17, 509);
             button1.Name = "button1";
-            button1.Size = new Size(66, 20);
+            button1.Size = new Size(75, 27);
             button1.TabIndex = 2;
             button1.Text = "Log out";
             button1.UseVisualStyleBackColor = true;
@@ -78,10 +75,9 @@
             btnPayment.IconColor = Color.White;
             btnPayment.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPayment.IconSize = 35;
-            btnPayment.Location = new Point(15, 74);
-            btnPayment.Margin = new Padding(3, 2, 3, 2);
+            btnPayment.Location = new Point(17, 99);
             btnPayment.Name = "btnPayment";
-            btnPayment.Size = new Size(66, 58);
+            btnPayment.Size = new Size(75, 77);
             btnPayment.TabIndex = 1;
             btnPayment.UseVisualStyleBackColor = true;
             // 
@@ -93,10 +89,9 @@
             btnPaymentHistory.IconColor = Color.White;
             btnPaymentHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnPaymentHistory.IconSize = 35;
-            btnPaymentHistory.Location = new Point(15, 260);
-            btnPaymentHistory.Margin = new Padding(3, 2, 3, 2);
+            btnPaymentHistory.Location = new Point(17, 347);
             btnPaymentHistory.Name = "btnPaymentHistory";
-            btnPaymentHistory.Size = new Size(66, 58);
+            btnPaymentHistory.Size = new Size(75, 77);
             btnPaymentHistory.TabIndex = 1;
             btnPaymentHistory.UseVisualStyleBackColor = true;
             // 
@@ -108,10 +103,9 @@
             btnQR.IconColor = Color.White;
             btnQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnQR.IconSize = 35;
-            btnQR.Location = new Point(15, 198);
-            btnQR.Margin = new Padding(3, 2, 3, 2);
+            btnQR.Location = new Point(17, 264);
             btnQR.Name = "btnQR";
-            btnQR.Size = new Size(66, 58);
+            btnQR.Size = new Size(75, 77);
             btnQR.TabIndex = 1;
             btnQR.UseVisualStyleBackColor = true;
             // 
@@ -123,10 +117,9 @@
             btnAttendance.IconColor = Color.White;
             btnAttendance.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAttendance.IconSize = 35;
-            btnAttendance.Location = new Point(15, 136);
-            btnAttendance.Margin = new Padding(3, 2, 3, 2);
+            btnAttendance.Location = new Point(17, 181);
             btnAttendance.Name = "btnAttendance";
-            btnAttendance.Size = new Size(66, 58);
+            btnAttendance.Size = new Size(75, 77);
             btnAttendance.TabIndex = 1;
             btnAttendance.UseVisualStyleBackColor = true;
             // 
@@ -138,64 +131,53 @@
             btnHome.IconColor = Color.White;
             btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHome.IconSize = 35;
-            btnHome.Location = new Point(15, 11);
-            btnHome.Margin = new Padding(3, 2, 3, 2);
+            btnHome.Location = new Point(17, 15);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(66, 58);
+            btnHome.Size = new Size(75, 77);
             btnHome.TabIndex = 1;
             btnHome.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(131, 29);
+            panel2.Controls.Add(lblStudentNumber);
+            panel2.Controls.Add(pictureBoxQR);
+            panel2.Location = new Point(232, 30);
             panel2.Name = "panel2";
-            panel2.Size = new Size(459, 245);
+            panel2.Size = new Size(448, 493);
             panel2.TabIndex = 3;
-            panel2.Paint += panel2_Paint;
             // 
-            // pictureBox1
+            // lblStudentNumber
             // 
-            pictureBox1.Location = new Point(14, 36);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(431, 193);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            lblStudentNumber.AutoSize = true;
+            lblStudentNumber.Location = new Point(216, 373);
+            lblStudentNumber.Name = "lblStudentNumber";
+            lblStudentNumber.Size = new Size(50, 20);
+            lblStudentNumber.TabIndex = 1;
+            lblStudentNumber.Text = "label1";
             // 
-            // label1
+            // pictureBoxQR
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(14, 2);
-            label1.Name = "label1";
-            label1.Size = new Size(121, 20);
-            label1.TabIndex = 6;
-            label1.Text = "Camera Preview";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(202, 196);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 7;
+            pictureBoxQR.Location = new Point(62, 87);
+            pictureBoxQR.Name = "pictureBoxQR";
+            pictureBoxQR.Size = new Size(330, 257);
+            pictureBoxQR.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxQR.TabIndex = 0;
+            pictureBoxQR.TabStop = false;
             // 
             // MyQRCodeForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 412);
+            ClientSize = new Size(800, 549);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "MyQRCodeForm";
             Text = "MyQRCodeForm";
+            Load += MyQRCodeForm_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxQR).EndInit();
             ResumeLayout(false);
         }
 
@@ -209,8 +191,7 @@
         private FontAwesome.Sharp.IconButton btnAttendance;
         private FontAwesome.Sharp.IconButton btnHome;
         private Panel panel2;
-        private PictureBox pictureBox1;
-        private Label label1;
-        private Label label2;
+        private PictureBox pictureBoxQR;
+        private Label lblStudentNumber;
     }
 }

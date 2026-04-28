@@ -26,6 +26,7 @@ namespace student_management.forms
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
+            
             TuitionManagementForm frm = new TuitionManagementForm();
             frm.Show();
             this.Hide();

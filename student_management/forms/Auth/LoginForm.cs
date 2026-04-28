@@ -46,6 +46,7 @@ namespace student_management.forms.Auth
                     Session.semester = reader["semester"].ToString();
                     Session.year = reader["year_level"].ToString();
                     Session.section = reader["section"].ToString();
+                    Session.studentNumber = reader["student_number"].ToString();
                 }
 
                 reader.Close();
@@ -139,14 +140,11 @@ namespace student_management.forms.Auth
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            QRScannerForm frm = new QRScannerForm();
+            RegisterForm frm = new RegisterForm();
             frm.Show();
             this.Hide();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
