@@ -18,6 +18,7 @@ namespace student_management.forms.student
             LoadProfile();
         }
 
+        // 🔥 LOAD PROFILE DATA
         private void LoadProfile()
         {
             DBConnect db = new DBConnect();
@@ -63,9 +64,54 @@ namespace student_management.forms.student
             }
         }
 
+        // 🏠 DASHBOARD
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            new StudentDashBoardForm().Show();
+            this.Close();
+        }
+
+        // 📷 MY QR
+        private void btnMyQR_Click(object sender, EventArgs e)
+        {
+            new QRCodeForm().Show();
+            this.Close();
+        }
+
+        // 📊 ATTENDANCE
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            new AttendanceHistoryForm().Show();
+            this.Close();
+        }
+
+        // 👤 PROFILE (CURRENT PAGE)
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            // do nothing (already here)
+        }
+
+        // 🚪 LOGOUT
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            new student_management.forms.Auth.Login().Show();
+            this.Close();
+        }
+
+        // 🔙 BACK BUTTON (optional)
         private void btnBack_Click(object sender, EventArgs e)
         {
+            new StudentDashBoardForm().Show();
             this.Close();
+        }
+
+        private void panelSidebar_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
         }
     }
 }

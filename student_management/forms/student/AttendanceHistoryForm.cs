@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using student_management.Helpers;
 
@@ -58,8 +59,61 @@ namespace student_management.forms.student
             }
         }
 
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            StudentDashBoardForm frm = new StudentDashBoardForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnMyQR_Click(object sender, EventArgs e)
+        {
+            QRCodeForm frm = new QRCodeForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AttendanceHistoryForm frm = new AttendanceHistoryForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            ProfileForm frm = new ProfileForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            new Auth.Login().Show();
+            this.Close();
+        }
+
+        private void panelSidebar_Paint(object sender, PaintEventArgs e)
+        {
+            int radius = 25;
+
+            GraphicsPath path = new GraphicsPath();
+
+            path.AddLine(0, 0, panelSidebar.Width - radius, 0);
+            path.AddArc(panelSidebar.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(panelSidebar.Width - radius, panelSidebar.Height - radius, radius, radius, 0, 90);
+            path.AddLine(0, panelSidebar.Height, 0, 0);
+
+            path.CloseFigure();
+
+            panelSidebar.Region = new System.Drawing.Region(path);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            StudentDashBoardForm frm = new StudentDashBoardForm();
+            frm.Show();
             this.Close();
         }
     }

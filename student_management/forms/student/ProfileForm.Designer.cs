@@ -62,13 +62,15 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(200, 450);
             panelSidebar.TabIndex = 2;
+            panelSidebar.Paint += panelSidebar_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(66, 9);
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label1.Location = new Point(22, 9);
             label1.Name = "label1";
-            label1.Size = new Size(56, 15);
+            label1.Size = new Size(139, 37);
             label1.TabIndex = 1;
             label1.Text = "STUDENT";
             // 
@@ -90,6 +92,7 @@
             iconButton5.Text = "Logout";
             iconButton5.TextAlign = ContentAlignment.MiddleRight;
             iconButton5.UseVisualStyleBackColor = false;
+            iconButton5.Click += iconButton5_Click;
             // 
             // btnProfile
             // 
@@ -116,9 +119,9 @@
             btnAttendance.FlatAppearance.BorderSize = 0;
             btnAttendance.FlatStyle = FlatStyle.Flat;
             btnAttendance.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAttendance.ForeColor = Color.Green;
+            btnAttendance.ForeColor = Color.Black;
             btnAttendance.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            btnAttendance.IconColor = Color.Green;
+            btnAttendance.IconColor = Color.Black;
             btnAttendance.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAttendance.ImageAlign = ContentAlignment.MiddleLeft;
             btnAttendance.Location = new Point(12, 183);
@@ -135,8 +138,9 @@
             btnMyQR.FlatAppearance.BorderSize = 0;
             btnMyQR.FlatStyle = FlatStyle.Flat;
             btnMyQR.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnMyQR.ForeColor = Color.Black;
             btnMyQR.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
-            btnMyQR.IconColor = Color.Green;
+            btnMyQR.IconColor = Color.Black;
             btnMyQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMyQR.ImageAlign = ContentAlignment.MiddleLeft;
             btnMyQR.Location = new Point(12, 126);
@@ -155,7 +159,7 @@
             btnDashboard.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.Black;
             btnDashboard.IconChar = FontAwesome.Sharp.IconChar.House;
-            btnDashboard.IconColor = Color.Green;
+            btnDashboard.IconColor = Color.Black;
             btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             btnDashboard.Location = new Point(12, 69);
@@ -165,6 +169,7 @@
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleRight;
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // panel1
             // 

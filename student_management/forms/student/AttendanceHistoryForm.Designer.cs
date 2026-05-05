@@ -30,7 +30,7 @@
         {
             panelSidebar = new Panel();
             label1 = new Label();
-            iconButton5 = new FontAwesome.Sharp.IconButton();
+            btnLogout = new FontAwesome.Sharp.IconButton();
             btnProfile = new FontAwesome.Sharp.IconButton();
             btnAttendance = new FontAwesome.Sharp.IconButton();
             btnMyQR = new FontAwesome.Sharp.IconButton();
@@ -47,44 +47,48 @@
             // 
             panelSidebar.BackColor = Color.FromArgb(192, 255, 192);
             panelSidebar.Controls.Add(label1);
-            panelSidebar.Controls.Add(iconButton5);
+            panelSidebar.Controls.Add(btnLogout);
             panelSidebar.Controls.Add(btnProfile);
             panelSidebar.Controls.Add(btnAttendance);
             panelSidebar.Controls.Add(btnMyQR);
             panelSidebar.Controls.Add(btnDashboard);
             panelSidebar.Dock = DockStyle.Left;
+            panelSidebar.ForeColor = Color.Black;
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(200, 450);
             panelSidebar.TabIndex = 1;
+            panelSidebar.Paint += panelSidebar_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(66, 9);
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label1.Location = new Point(21, 9);
             label1.Name = "label1";
-            label1.Size = new Size(56, 15);
+            label1.Size = new Size(139, 37);
             label1.TabIndex = 1;
             label1.Text = "STUDENT";
             // 
-            // iconButton5
+            // btnLogout
             // 
-            iconButton5.BackColor = Color.FromArgb(128, 255, 128);
-            iconButton5.FlatAppearance.BorderSize = 0;
-            iconButton5.FlatStyle = FlatStyle.Flat;
-            iconButton5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            iconButton5.ForeColor = Color.Green;
-            iconButton5.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            iconButton5.IconColor = Color.Green;
-            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(12, 396);
-            iconButton5.Name = "iconButton5";
-            iconButton5.Size = new Size(165, 42);
-            iconButton5.TabIndex = 0;
-            iconButton5.Text = "Logout";
-            iconButton5.TextAlign = ContentAlignment.MiddleRight;
-            iconButton5.UseVisualStyleBackColor = false;
+            btnLogout.BackColor = Color.FromArgb(128, 255, 128);
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnLogout.ForeColor = Color.Green;
+            btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            btnLogout.IconColor = Color.Green;
+            btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLogout.Location = new Point(12, 396);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(165, 42);
+            btnLogout.TabIndex = 0;
+            btnLogout.Text = "Logout";
+            btnLogout.TextAlign = ContentAlignment.MiddleRight;
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnProfile
             // 
@@ -92,9 +96,9 @@
             btnProfile.FlatAppearance.BorderSize = 0;
             btnProfile.FlatStyle = FlatStyle.Flat;
             btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnProfile.ForeColor = Color.Green;
+            btnProfile.ForeColor = Color.Black;
             btnProfile.IconChar = FontAwesome.Sharp.IconChar.User;
-            btnProfile.IconColor = Color.Green;
+            btnProfile.IconColor = Color.Black;
             btnProfile.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnProfile.ImageAlign = ContentAlignment.MiddleLeft;
             btnProfile.Location = new Point(12, 241);
@@ -104,6 +108,7 @@
             btnProfile.Text = "Profile";
             btnProfile.TextAlign = ContentAlignment.MiddleRight;
             btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += btnProfile_Click;
             // 
             // btnAttendance
             // 
@@ -130,9 +135,9 @@
             btnMyQR.FlatAppearance.BorderSize = 0;
             btnMyQR.FlatStyle = FlatStyle.Flat;
             btnMyQR.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnMyQR.ForeColor = Color.Green;
+            btnMyQR.ForeColor = Color.Black;
             btnMyQR.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
-            btnMyQR.IconColor = Color.Green;
+            btnMyQR.IconColor = Color.Black;
             btnMyQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnMyQR.ImageAlign = ContentAlignment.MiddleLeft;
             btnMyQR.Location = new Point(12, 126);
@@ -151,7 +156,7 @@
             btnDashboard.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.Green;
             btnDashboard.IconChar = FontAwesome.Sharp.IconChar.House;
-            btnDashboard.IconColor = Color.Green;
+            btnDashboard.IconColor = Color.Black;
             btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             btnDashboard.Location = new Point(12, 69);
@@ -211,7 +216,7 @@
 
         private Panel panelSidebar;
         private Label label1;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton btnLogout;
         private FontAwesome.Sharp.IconButton btnProfile;
         private FontAwesome.Sharp.IconButton btnAttendance;
         private FontAwesome.Sharp.IconButton btnMyQR;
