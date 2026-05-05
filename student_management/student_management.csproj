@@ -22,6 +22,8 @@
 
   <ItemGroup>
     <Folder Include="assets\images\" />
+    <Folder Include="forms\Admin\" />
+>>>>>>> origin/student-side
   </ItemGroup>
 
   <ItemGroup>
