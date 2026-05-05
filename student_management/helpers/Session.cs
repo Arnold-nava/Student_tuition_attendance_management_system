@@ -1,29 +1,39 @@
 ﻿namespace student_management.Helpers
 {
-    public class Session
+    public static class Session
     {
         public static int userId;
-        public static int studentId;
-        public static string studentNumber;
+        public static int studentDbId;
+        public static int teacherDbId;
+
         public static string username;
         public static string role;
         public static string fullName;
-        public static string course;
-        public static string year;
-        public static string semester;
-        public static string section;
 
+        public static string studentNumber;
+        public static string teacherNumber;
+
+        public static int classId;
+        public static string className;
+        public static string gradeLevel;
+        public static string section;
 
         public static void Clear()
         {
             userId = 0;
-            studentId = 0;
+            studentDbId = 0;
+            teacherDbId = 0;
+
             username = "";
             role = "";
             fullName = "";
-            course = "";
-            year = "";
-            semester = "";
+
+            studentNumber = "";
+            teacherNumber = "";
+
+            classId = 0;
+            className = "";
+            gradeLevel = "";
             section = "";
         }
     }

@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="assets\images\" />
     <Folder Include="forms\Admin\" />
-    <Folder Include="forms\student\" />
   </ItemGroup>
 
   <ItemGroup>
