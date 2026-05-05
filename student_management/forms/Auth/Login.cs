@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using crud;
 using MySql.Data.MySqlClient;
@@ -27,48 +20,53 @@ namespace student_management.forms.Auth
             string user = txtUser.Text.Trim();
             string pass = txtPassword.Text.Trim();
 
-            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
+            if (user == "" || pass == "")
             {
                 MessageBox.Show("Please enter both username and password.", "Error");
                 return;
             }
 
-            DBConnect db  = new DBConnect();
+            DBConnect db = new DBConnect();
 
             try
             {
                 db.Open();
 
-                string query = "SELECT * FROM users WHERE username = @username AND password = @password";
+                string query = "SELECT * FROM users WHERE username=@username AND password=@password";
 
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
                 cmd.Parameters.AddWithValue("@username", user);
                 cmd.Parameters.AddWithValue("@password", pass);
 
-
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    string role = reader["role"].ToString();
                     int userId = Convert.ToInt32(reader["id"]);
+                    string role = reader["role"].ToString();
 
                     Session.userId = userId;
                     Session.username = reader["username"].ToString();
                     Session.role = role;
 
-                    MessageBox.Show("Login successful!");
-
                     reader.Close();
 
                     if (role == "teacher")
                     {
+                        LoadTeacherSession(db, userId);
+
+                        MessageBox.Show("Login successful!");
+
                         TeacherDashBoard frm = new TeacherDashBoard();
                         frm.Show();
                         this.Hide();
                     }
                     else if (role == "student")
                     {
+                        LoadStudentSession(db, userId);
+
+                        MessageBox.Show("Login successful!");
+
                         StudentDashBoard frm = new StudentDashBoard();
                         frm.Show();
                         this.Hide();
@@ -76,18 +74,72 @@ namespace student_management.forms.Auth
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.",
-                        "Login Failed");
+                    reader.Close();
+                    MessageBox.Show("Invalid username or password.", "Login Failed");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while connecting to the database: " + ex.Message, "Error");
+                MessageBox.Show("Database Error: " + ex.Message, "Error");
             }
             finally
             {
                 db.Close();
-            }   
+            }
+        }
+
+        private void LoadTeacherSession(DBConnect db, int userId)
+        {
+            string query = "SELECT id, teacher_id, full_name FROM teachers WHERE user_id=@userId";
+
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            cmd.Parameters.AddWithValue("@userId", userId);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                Session.teacherDbId = Convert.ToInt32(reader["id"]);
+                Session.teacherNumber = reader["teacher_id"].ToString();
+                Session.fullName = reader["full_name"].ToString();
+            }
+
+            reader.Close();
+        }
+
+        private void LoadStudentSession(DBConnect db, int userId)
+        {
+            string query = @"
+                SELECT 
+                    s.id,
+                    s.student_id,
+                    s.full_name,
+                    s.class_id,
+                    c.class_name,
+                    c.grade_level,
+                    c.section
+                FROM students s
+                INNER JOIN classes c ON s.class_id = c.id
+                WHERE s.user_id=@userId";
+
+            MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+            cmd.Parameters.AddWithValue("@userId", userId);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                Session.studentDbId = Convert.ToInt32(reader["id"]);
+                Session.studentNumber = reader["student_id"].ToString();
+                Session.fullName = reader["full_name"].ToString();
+
+                Session.classId = Convert.ToInt32(reader["class_id"]);
+                Session.className = reader["class_name"].ToString();
+                Session.gradeLevel = reader["grade_level"].ToString();
+                Session.section = reader["section"].ToString();
+            }
+
+            reader.Close();
         }
     }
 }
