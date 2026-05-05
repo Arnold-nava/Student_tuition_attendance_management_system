@@ -1,5 +1,6 @@
 ﻿using crud;
 using MySql.Data.MySqlClient;
+using student_management.forms.student;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using student_management.Helpers;
+
 
 namespace student_management.forms.Auth
 {
@@ -21,7 +24,7 @@ namespace student_management.forms.Auth
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string studentNo = txtStudentNo.Text.Trim();
+            string studentNo = txtStudentNumber.Text.Trim();
             string username = txtUser.Text.Trim();
             string password = txtPassword.Text.Trim();
 
@@ -37,56 +40,98 @@ namespace student_management.forms.Auth
             {
                 db.Open();
 
-                // 🔍 1. CHECK IF STUDENT EXISTS AND NOT REGISTERED
-                string checkQuery = @"
+                string checkStudent = @"
             SELECT id FROM students 
             WHERE student_id = @student_id AND user_id IS NULL";
 
-                MySqlCommand checkCmd = new MySqlCommand(checkQuery, db.Connection);
-                checkCmd.Parameters.AddWithValue("@student_id", studentNo);
+                MySqlCommand cmd1 = new MySqlCommand(checkStudent, db.Connection);
+                cmd1.Parameters.AddWithValue("@student_id", studentNo);
 
-                object result = checkCmd.ExecuteScalar();
+                object result = cmd1.ExecuteScalar();
 
                 if (result == null)
                 {
-                    MessageBox.Show("Student number not found or already registered.");
+                    MessageBox.Show("Student not found or already registered.");
                     return;
                 }
 
                 int studentDbId = Convert.ToInt32(result);
 
-                // 🧾 2. INSERT INTO USERS TABLE
-                string insertUserQuery = @"
+
+                string checkUser = "SELECT id FROM users WHERE username=@username";
+                MySqlCommand cmd2 = new MySqlCommand(checkUser, db.Connection);
+                cmd2.Parameters.AddWithValue("@username", username);
+
+                object userExists = cmd2.ExecuteScalar();
+
+                if (userExists != null)
+                {
+                    MessageBox.Show("Username already taken.");
+                    return;
+                }
+
+                string insertUser = @"
             INSERT INTO users (username, password, role)
             VALUES (@username, @password, 'student')";
 
-                MySqlCommand insertCmd = new MySqlCommand(insertUserQuery, db.Connection);
-                insertCmd.Parameters.AddWithValue("@username", username);
-                insertCmd.Parameters.AddWithValue("@password", password);
+                MySqlCommand cmd3 = new MySqlCommand(insertUser, db.Connection);
+                cmd3.Parameters.AddWithValue("@username", username);
+                cmd3.Parameters.AddWithValue("@password", password);
 
-                insertCmd.ExecuteNonQuery();
+                cmd3.ExecuteNonQuery();
 
-                // 🆔 3. GET LAST INSERTED USER ID
-                int userId = (int)insertCmd.LastInsertedId;
+                int userId = (int)cmd3.LastInsertedId;
 
-                // 🔗 4. LINK USER TO STUDENT
-                string updateQuery = @"
+                string update = @"
             UPDATE students 
             SET user_id = @user_id 
             WHERE id = @student_id";
 
-                MySqlCommand updateCmd = new MySqlCommand(updateQuery, db.Connection);
-                updateCmd.Parameters.AddWithValue("@user_id", userId);
-                updateCmd.Parameters.AddWithValue("@student_id", studentDbId);
+                MySqlCommand cmd4 = new MySqlCommand(update, db.Connection);
+                cmd4.Parameters.AddWithValue("@user_id", userId);
+                cmd4.Parameters.AddWithValue("@student_id", studentDbId);
 
-                updateCmd.ExecuteNonQuery();
+                cmd4.ExecuteNonQuery();
+
+                string studentInfoQuery = @"
+            SELECT 
+                s.full_name,
+                s.class_id,
+                c.class_name,
+                c.grade_level,
+                c.section
+            FROM students s
+            INNER JOIN classes c ON s.class_id = c.id
+            WHERE s.id = @id";
+
+                MySqlCommand infoCmd = new MySqlCommand(studentInfoQuery, db.Connection);
+                infoCmd.Parameters.AddWithValue("@id", studentDbId);
+
+                MySqlDataReader reader = infoCmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Session.userId = userId;
+                    Session.username = username;
+                    Session.role = "student";
+
+                    Session.studentDbId = studentDbId;
+                    Session.studentNumber = studentNo;
+                    Session.fullName = reader["full_name"].ToString();
+
+                    Session.classId = Convert.ToInt32(reader["class_id"]);
+                    Session.className = reader["class_name"].ToString();
+                    Session.gradeLevel = reader["grade_level"].ToString();
+                    Session.section = reader["section"].ToString();
+                }
+
+                reader.Close();
 
                 MessageBox.Show("Registration successful!");
 
-                // clear fields
-                txtStudentNo.Clear();
-                txtUser.Clear();
-                txtPassword.Clear();
+                StudentDashBoard frm = new StudentDashBoard();
+                frm.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {

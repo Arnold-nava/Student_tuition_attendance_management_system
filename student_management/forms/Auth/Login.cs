@@ -11,6 +11,7 @@ using crud;
 using MySql.Data.MySqlClient;
 using student_management.forms.Admin;
 using student_management.forms.student;
+using student_management.Helpers;
 
 namespace student_management.forms.Auth
 {
@@ -28,7 +29,7 @@ namespace student_management.forms.Auth
 
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter both username and password.", "Error");
                 return;
             }
 
@@ -52,6 +53,10 @@ namespace student_management.forms.Auth
                     string role = reader["role"].ToString();
                     int userId = Convert.ToInt32(reader["id"]);
 
+                    Session.userId = userId;
+                    Session.username = reader["username"].ToString();
+                    Session.role = role;
+
                     MessageBox.Show("Login successful!");
 
                     reader.Close();
@@ -72,12 +77,12 @@ namespace student_management.forms.Auth
                 else
                 {
                     MessageBox.Show("Invalid username or password.",
-                        "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Login Failed");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while connecting to the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while connecting to the database: " + ex.Message, "Error");
             }
             finally
             {

@@ -34,7 +34,21 @@
             btnStudentManagement = new FontAwesome.Sharp.IconButton();
             btnScanner = new FontAwesome.Sharp.IconButton();
             btnDaashboard = new FontAwesome.Sharp.IconButton();
+            label1 = new Label();
+            pnlTodayClasses = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            lblClass = new Label();
+            lblTodayClassesTitle = new Label();
+            label4 = new Label();
+            lblStudents = new Label();
+            lblAttendance = new Label();
+            label3 = new Label();
+            lblName = new Label();
             panel1.SuspendLayout();
+            pnlTodayClasses.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -137,17 +151,136 @@
             btnDaashboard.UseVisualStyleBackColor = true;
             btnDaashboard.Click += btnDaashboard_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(182, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(109, 25);
+            label1.TabIndex = 1;
+            label1.Text = "Dashboard";
+            // 
+            // pnlTodayClasses
+            // 
+            pnlTodayClasses.Controls.Add(lblClass);
+            pnlTodayClasses.Controls.Add(lblTodayClassesTitle);
+            pnlTodayClasses.Location = new Point(205, 83);
+            pnlTodayClasses.Name = "pnlTodayClasses";
+            pnlTodayClasses.Size = new Size(162, 142);
+            pnlTodayClasses.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(lblStudents);
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(411, 83);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(162, 142);
+            panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(lblAttendance);
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(607, 83);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(162, 142);
+            panel4.TabIndex = 2;
+            // 
+            // lblClass
+            // 
+            lblClass.AutoSize = true;
+            lblClass.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblClass.Location = new Point(45, 19);
+            lblClass.Name = "lblClass";
+            lblClass.Size = new Size(74, 86);
+            lblClass.TabIndex = 0;
+            lblClass.Text = "0";
+            // 
+            // lblTodayClassesTitle
+            // 
+            lblTodayClassesTitle.AutoSize = true;
+            lblTodayClassesTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTodayClassesTitle.Location = new Point(19, 105);
+            lblTodayClassesTitle.Name = "lblTodayClassesTitle";
+            lblTodayClassesTitle.Size = new Size(126, 25);
+            lblTodayClassesTitle.TabIndex = 1;
+            lblTodayClassesTitle.Text = "Today's Class";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(34, 105);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 25);
+            label4.TabIndex = 1;
+            label4.Text = "Students";
+            // 
+            // lblStudents
+            // 
+            lblStudents.AutoSize = true;
+            lblStudents.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStudents.Location = new Point(42, 19);
+            lblStudents.Name = "lblStudents";
+            lblStudents.Size = new Size(74, 86);
+            lblStudents.TabIndex = 0;
+            lblStudents.Text = "0";
+            // 
+            // lblAttendance
+            // 
+            lblAttendance.AutoSize = true;
+            lblAttendance.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAttendance.Location = new Point(44, 19);
+            lblAttendance.Name = "lblAttendance";
+            lblAttendance.Size = new Size(74, 86);
+            lblAttendance.TabIndex = 2;
+            lblAttendance.Text = "0";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(17, 111);
+            label3.Name = "label3";
+            label3.Size = new Size(128, 17);
+            label3.TabIndex = 3;
+            label3.Text = "Today's Attendance";
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblName.Location = new Point(638, 12);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(150, 25);
+            lblName.TabIndex = 1;
+            lblName.Text = "Welcom, Guest!";
+            // 
             // TeacherDashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 463);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(pnlTodayClasses);
+            Controls.Add(lblName);
+            Controls.Add(label1);
             Controls.Add(panel1);
             Name = "TeacherDashBoard";
             Text = "TeacherDashBoard";
             Load += TeacherDashBoard_Load;
             panel1.ResumeLayout(false);
+            pnlTodayClasses.ResumeLayout(false);
+            pnlTodayClasses.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -158,5 +291,16 @@
         private FontAwesome.Sharp.IconButton btnAttendanceRecords;
         private FontAwesome.Sharp.IconButton btnStudentManagement;
         private FontAwesome.Sharp.IconButton btnScanner;
+        private Label label1;
+        private Panel pnlTodayClasses;
+        private Panel panel3;
+        private Panel panel4;
+        private Label lblClass;
+        private Label lblTodayClassesTitle;
+        private Label lblStudents;
+        private Label label4;
+        private Label lblAttendance;
+        private Label label3;
+        private Label lblName;
     }
 }
