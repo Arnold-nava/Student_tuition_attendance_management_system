@@ -115,7 +115,7 @@ namespace student_management.forms.Auth
                     Session.username = username;
                     Session.role = "student";
 
-                    Session.studentDbId = studentDbId;
+                    Session.studentId = studentDbId;
                     Session.studentNumber = studentNo;
                     Session.fullName = reader["full_name"].ToString();
 

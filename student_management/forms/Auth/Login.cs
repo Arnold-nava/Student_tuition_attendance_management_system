@@ -99,7 +99,7 @@ namespace student_management.forms.Auth
 
             if (reader.Read())
             {
-                Session.teacherDbId = Convert.ToInt32(reader["id"]);
+                Session.teacherId = Convert.ToInt32(reader["id"]);
                 Session.teacherNumber = reader["teacher_id"].ToString();
                 Session.fullName = reader["full_name"].ToString();
             }
@@ -129,7 +129,7 @@ namespace student_management.forms.Auth
 
             if (reader.Read())
             {
-                Session.studentDbId = Convert.ToInt32(reader["id"]);
+                Session.studentId = Convert.ToInt32(reader["id"]);
                 Session.studentNumber = reader["student_id"].ToString();
                 Session.fullName = reader["full_name"].ToString();
 

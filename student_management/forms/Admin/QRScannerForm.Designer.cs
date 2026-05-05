@@ -45,10 +45,10 @@
             panel1.Controls.Add(btnStudentManagement);
             panel1.Controls.Add(btnScanner);
             panel1.Controls.Add(btnDaashboard);
-            panel1.Location = new Point(-2, 2);
+            panel1.Location = new Point(0, -2);
             panel1.Name = "panel1";
             panel1.Size = new Size(176, 466);
-            panel1.TabIndex = 2;
+            panel1.TabIndex = 3;
             // 
             // button1
             // 
@@ -137,7 +137,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 470);
+            ClientSize = new Size(800, 462);
             Controls.Add(panel1);
             Name = "QRScannerForm";
             Text = "QRScannerForm";

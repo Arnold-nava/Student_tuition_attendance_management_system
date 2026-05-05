@@ -11,7 +11,7 @@ namespace student_management
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new student_management.forms.Admin.TeacherDashBoard());
+            Application.Run(new student_management.forms.Auth.Login());
         }
     }
 }

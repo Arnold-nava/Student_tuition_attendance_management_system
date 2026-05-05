@@ -35,7 +35,7 @@ namespace student_management.forms.Admin
             WHERE teacher_id = @teacherId";
 
                 MySqlCommand cmd1 = new MySqlCommand(todayClassQuery, db.Connection);
-                cmd1.Parameters.AddWithValue("@teacherId", Session.teacherDbId);
+                cmd1.Parameters.AddWithValue("@teacherId", Session.teacherId);
                 lblClass.Text = cmd1.ExecuteScalar().ToString();
 
                 string studentsQuery = @"
@@ -45,7 +45,7 @@ namespace student_management.forms.Admin
             WHERE ts.teacher_id = @teacherId";
 
                 MySqlCommand cmd2 = new MySqlCommand(studentsQuery, db.Connection);
-                cmd2.Parameters.AddWithValue("@teacherId", Session.teacherDbId);
+                cmd2.Parameters.AddWithValue("@teacherId", Session.teacherId);
                 lblStudents.Text = cmd2.ExecuteScalar().ToString();
 
                 string attendanceQuery = @"
@@ -55,7 +55,7 @@ namespace student_management.forms.Admin
             AND attendance_date = CURDATE()";
 
                 MySqlCommand cmd3 = new MySqlCommand(attendanceQuery, db.Connection);
-                cmd3.Parameters.AddWithValue("@teacherId", Session.teacherDbId);
+                cmd3.Parameters.AddWithValue("@teacherId", Session.teacherId);
                 lblAttendance.Text = cmd3.ExecuteScalar().ToString();
             }
             catch (Exception ex)
@@ -100,7 +100,7 @@ namespace student_management.forms.Admin
                 c.section";
 
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-                cmd.Parameters.AddWithValue("@teacherId", Session.teacherDbId);
+                cmd.Parameters.AddWithValue("@teacherId", Session.teacherId);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 

@@ -254,7 +254,7 @@
             // 
             lblTeacherName.AutoSize = true;
             lblTeacherName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTeacherName.Location = new Point(638, 12);
+            lblTeacherName.Location = new Point(182, 34);
             lblTeacherName.Name = "lblTeacherName";
             lblTeacherName.Size = new Size(160, 25);
             lblTeacherName.TabIndex = 1;

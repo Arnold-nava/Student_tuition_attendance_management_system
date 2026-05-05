@@ -54,5 +54,15 @@ namespace student_management.forms.Admin
             frm.Show();
             this.Hide();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AttendanceHistoryForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

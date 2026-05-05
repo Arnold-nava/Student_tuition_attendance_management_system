@@ -3,8 +3,8 @@
     public static class Session
     {
         public static int userId;
-        public static int studentDbId;
-        public static int teacherDbId;
+        public static int studentId;
+        public static int teacherId;
 
         public static string username;
         public static string role;
@@ -18,11 +18,14 @@
         public static string gradeLevel;
         public static string section;
 
+        public static int subjectId;
+        public static string subjectName;
+
         public static void Clear()
         {
             userId = 0;
-            studentDbId = 0;
-            teacherDbId = 0;
+            studentId = 0;
+            teacherId = 0;
 
             username = "";
             role = "";
@@ -35,6 +38,9 @@
             className = "";
             gradeLevel = "";
             section = "";
+
+            subjectId = 0;
+            subjectName = "";
         }
     }
 }
