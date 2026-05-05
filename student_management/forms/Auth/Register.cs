@@ -129,7 +129,7 @@ namespace student_management.forms.Auth
 
                 MessageBox.Show("Registration successful!");
 
-                StudentDashBoard frm = new StudentDashBoard();
+                StudentDashBoardForm frm = new StudentDashBoardForm();
                 frm.Show();
                 this.Hide();
             }

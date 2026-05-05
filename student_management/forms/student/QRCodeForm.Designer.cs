@@ -38,10 +38,14 @@
             picQR = new FontAwesome.Sharp.IconPictureBox();
             lblName = new Label();
             lblStudentNo = new Label();
-            btnDownload = new FontAwesome.Sharp.IconButton();
+            panelQR = new Panel();
+            label3 = new Label();
+            label2 = new Label();
             btnPrint = new FontAwesome.Sharp.IconButton();
+            btnDownload = new FontAwesome.Sharp.IconButton();
             panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picQR).BeginInit();
+            panelQR.SuspendLayout();
             SuspendLayout();
             // 
             // panelSidebar
@@ -177,64 +181,118 @@
             picQR.IconChar = FontAwesome.Sharp.IconChar.None;
             picQR.IconColor = SystemColors.ControlText;
             picQR.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            picQR.Location = new Point(458, 183);
+            picQR.IconSize = 221;
+            picQR.Location = new Point(174, 101);
             picQR.Name = "picQR";
-            picQR.Size = new Size(32, 32);
+            picQR.Size = new Size(245, 221);
             picQR.TabIndex = 2;
             picQR.TabStop = false;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(458, 105);
+            lblName.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblName.Location = new Point(264, 49);
             lblName.Name = "lblName";
-            lblName.Size = new Size(37, 15);
+            lblName.Size = new Size(61, 22);
             lblName.TabIndex = 3;
             lblName.Text = "name";
             // 
             // lblStudentNo
             // 
             lblStudentNo.AutoSize = true;
-            lblStudentNo.Location = new Point(442, 126);
+            lblStudentNo.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblStudentNo.Location = new Point(253, 76);
             lblStudentNo.Name = "lblStudentNo";
-            lblStudentNo.Size = new Size(70, 15);
+            lblStudentNo.Size = new Size(84, 17);
             lblStudentNo.TabIndex = 4;
             lblStudentNo.Text = "Student No.";
             // 
-            // btnDownload
+            // panelQR
             // 
-            btnDownload.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnDownload.IconColor = Color.Black;
-            btnDownload.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnDownload.Location = new Point(361, 326);
-            btnDownload.Name = "btnDownload";
-            btnDownload.Size = new Size(75, 23);
-            btnDownload.TabIndex = 5;
-            btnDownload.Text = "download";
-            btnDownload.UseVisualStyleBackColor = true;
+            panelQR.Controls.Add(label3);
+            panelQR.Controls.Add(label2);
+            panelQR.Controls.Add(lblName);
+            panelQR.Controls.Add(picQR);
+            panelQR.Controls.Add(lblStudentNo);
+            panelQR.Controls.Add(btnPrint);
+            panelQR.Controls.Add(btnDownload);
+            panelQR.Dock = DockStyle.Fill;
+            panelQR.Location = new Point(200, 0);
+            panelQR.Name = "panelQR";
+            panelQR.Size = new Size(600, 450);
+            panelQR.TabIndex = 7;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = SystemColors.Control;
+            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label3.Location = new Point(6, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(142, 30);
+            label3.TabIndex = 1;
+            label3.Text = "My QR Code";
+            label3.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label2.Location = new Point(56, 399);
+            label2.Name = "label2";
+            label2.Size = new Size(478, 30);
+            label2.TabIndex = 1;
+            label2.Text = "Send This QR to your Teacher for Attendance";
+            label2.Click += label1_Click;
             // 
             // btnPrint
             // 
-            btnPrint.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnPrint.IconColor = Color.Black;
+            btnPrint.BackColor = Color.White;
+            btnPrint.FlatAppearance.BorderSize = 0;
+            btnPrint.FlatStyle = FlatStyle.Flat;
+            btnPrint.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnPrint.ForeColor = Color.FromArgb(0, 192, 0);
+            btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
+            btnPrint.IconColor = Color.FromArgb(0, 192, 0);
             btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnPrint.Location = new Point(512, 326);
+            btnPrint.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPrint.Location = new Point(317, 337);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
-            btnPrint.TabIndex = 6;
-            btnPrint.Text = "print";
-            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.Size = new Size(165, 51);
+            btnPrint.TabIndex = 0;
+            btnPrint.Text = "Print";
+            btnPrint.TextAlign = ContentAlignment.MiddleRight;
+            btnPrint.UseVisualStyleBackColor = false;
+            btnPrint.Click += btnDashboard_Click;
+            // 
+            // btnDownload
+            // 
+            btnDownload.BackColor = Color.White;
+            btnDownload.FlatAppearance.BorderSize = 0;
+            btnDownload.FlatStyle = FlatStyle.Flat;
+            btnDownload.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnDownload.ForeColor = Color.FromArgb(0, 192, 0);
+            btnDownload.IconChar = FontAwesome.Sharp.IconChar.Download;
+            btnDownload.IconColor = Color.FromArgb(0, 192, 0);
+            btnDownload.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnDownload.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDownload.Location = new Point(129, 337);
+            btnDownload.Name = "btnDownload";
+            btnDownload.Size = new Size(165, 51);
+            btnDownload.TabIndex = 0;
+            btnDownload.Text = "Download";
+            btnDownload.TextAlign = ContentAlignment.MiddleRight;
+            btnDownload.UseVisualStyleBackColor = false;
+            btnDownload.Click += btnDashboard_Click;
             // 
             // QRCodeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnPrint);
-            Controls.Add(btnDownload);
-            Controls.Add(lblStudentNo);
-            Controls.Add(lblName);
-            Controls.Add(picQR);
+            Controls.Add(panelQR);
             Controls.Add(panelSidebar);
             Name = "QRCodeForm";
             Text = "QRCodeForm";
@@ -242,8 +300,9 @@
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picQR).EndInit();
+            panelQR.ResumeLayout(false);
+            panelQR.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -258,7 +317,10 @@
         private FontAwesome.Sharp.IconPictureBox picQR;
         private Label lblName;
         private Label lblStudentNo;
-        private FontAwesome.Sharp.IconButton btnDownload;
+        private Panel panelQR;
         private FontAwesome.Sharp.IconButton btnPrint;
+        private FontAwesome.Sharp.IconButton btnDownload;
+        private Label label2;
+        private Label label3;
     }
 }

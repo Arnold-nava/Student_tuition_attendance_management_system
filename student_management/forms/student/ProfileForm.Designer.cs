@@ -36,11 +36,11 @@
             btnMyQR = new FontAwesome.Sharp.IconButton();
             btnDashboard = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            label2 = new Label();
             lblStatus = new Label();
             lblClass = new Label();
             lblEmail = new Label();
             lblStudentNo = new Label();
-            btnBack = new FontAwesome.Sharp.IconButton();
             lblName = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
@@ -173,11 +173,11 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(lblStatus);
             panel1.Controls.Add(lblClass);
             panel1.Controls.Add(lblEmail);
             panel1.Controls.Add(lblStudentNo);
-            panel1.Controls.Add(btnBack);
             panel1.Controls.Add(lblName);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(200, 0);
@@ -185,67 +185,63 @@
             panel1.Size = new Size(600, 450);
             panel1.TabIndex = 2;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label2.Location = new Point(6, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 37);
+            label2.TabIndex = 1;
+            label2.Text = "Profile";
+            // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(170, 162);
+            lblStatus.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblStatus.Location = new Point(105, 220);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(39, 15);
+            lblStatus.Size = new Size(71, 28);
             lblStatus.TabIndex = 4;
             lblStatus.Text = "Status";
             // 
             // lblClass
             // 
             lblClass.AutoSize = true;
-            lblClass.Location = new Point(151, 146);
+            lblClass.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblClass.Location = new Point(105, 183);
             lblClass.Name = "lblClass";
-            lblClass.Size = new Size(34, 15);
+            lblClass.Size = new Size(59, 28);
             lblClass.TabIndex = 3;
             lblClass.Text = "Class";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(137, 131);
+            lblEmail.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblEmail.Location = new Point(105, 147);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(36, 15);
+            lblEmail.Size = new Size(64, 28);
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email";
             // 
             // lblStudentNo
             // 
             lblStudentNo.AutoSize = true;
-            lblStudentNo.Location = new Point(127, 114);
+            lblStudentNo.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblStudentNo.Location = new Point(105, 111);
             lblStudentNo.Name = "lblStudentNo";
-            lblStudentNo.Size = new Size(64, 15);
+            lblStudentNo.Size = new Size(114, 28);
             lblStudentNo.TabIndex = 1;
             lblStudentNo.Text = "student no";
-            // 
-            // btnBack
-            // 
-            btnBack.BackColor = Color.FromArgb(128, 255, 128);
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnBack.ForeColor = Color.Green;
-            btnBack.IconChar = FontAwesome.Sharp.IconChar.House;
-            btnBack.IconColor = Color.Green;
-            btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBack.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBack.Location = new Point(66, 293);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(165, 51);
-            btnBack.TabIndex = 0;
-            btnBack.Text = "Back";
-            btnBack.TextAlign = ContentAlignment.MiddleRight;
-            btnBack.UseVisualStyleBackColor = false;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(116, 99);
+            lblName.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblName.Location = new Point(105, 69);
             lblName.Name = "lblName";
-            lblName.Size = new Size(37, 15);
+            lblName.Size = new Size(64, 28);
             lblName.TabIndex = 0;
             lblName.Text = "name";
             // 
@@ -281,9 +277,9 @@
         private Label lblClass;
         private Label lblEmail;
         private Label lblStudentNo;
-        private FontAwesome.Sharp.IconButton btnBack;
         private Label lblName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private Label label2;
     }
 }

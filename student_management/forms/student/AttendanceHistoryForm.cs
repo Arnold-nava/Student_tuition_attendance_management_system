@@ -112,9 +112,6 @@ namespace student_management.forms.student
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StudentDashBoardForm frm = new StudentDashBoardForm();
-            frm.Show();
-            this.Close();
         }
     }
 }

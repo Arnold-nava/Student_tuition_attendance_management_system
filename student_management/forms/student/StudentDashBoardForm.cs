@@ -3,9 +3,11 @@ using System.Windows.Forms;
 using crud;
 using MySql.Data.MySqlClient;
 using student_management.Helpers;
+using System.Drawing.Drawing2D;
 
 namespace student_management.forms.student
 {
+
     public partial class StudentDashBoardForm : Form
     {
         public StudentDashBoardForm()
@@ -13,8 +15,37 @@ namespace student_management.forms.student
             InitializeComponent();
         }
 
+        private void RoundControl(Control control, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90);
+            path.AddArc(0, control.Height - radius, radius, radius, 90, 90);
+
+            path.CloseFigure();
+            control.Region = new Region(path);
+        }
+
         private void StudentDashBoardForm_Load(object sender, EventArgs e)
         {
+            LoadDashboard();
+            RoundControl(panelSidebar, 25);
+
+            RoundControl(btnDashboard, 15);
+            RoundControl(btnMyQR, 15);
+            RoundControl(btnAttendance, 15);
+            RoundControl(btnProfile, 15);
+            RoundControl(btnLogout, 15);
+
+            RoundControl(panelStatus, 15);
+            RoundControl(panelPresent, 15);
+            RoundControl(panelAbsent, 15);
+            RoundControl(panelLate, 15);
+            RoundControl(panelPending, 15);
+            RoundControl(panelTodayClass, 15);
+
             LoadDashboard();
         }
 
@@ -112,6 +143,11 @@ namespace student_management.forms.student
             Session.Clear();
             new student_management.forms.Auth.Login().Show();
             this.Close();
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
