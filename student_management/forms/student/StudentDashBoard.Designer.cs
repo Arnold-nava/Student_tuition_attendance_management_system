@@ -1,6 +1,6 @@
-﻿namespace student_management.forms.Auth
+﻿namespace student_management.forms.student
 {
-    partial class ForgotPasswordForm
+    partial class StudentDashBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ForgotPasswordForm";
+            this.Text = "StudentDashBoard";
         }
 
         #endregion

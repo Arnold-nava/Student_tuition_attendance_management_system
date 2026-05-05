@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace student_management.forms
+namespace student_management.forms.student
 {
-    public partial class TuitionForm : Form
+    public partial class QRCodeForm : Form
     {
-        public TuitionForm()
+        public QRCodeForm()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace student_management.forms.Admin
 {
-    public partial class TuitionManagementForm : Form
+    public partial class QRScannerForm : Form
     {
-        public TuitionManagementForm()
+        public QRScannerForm()
         {
             InitializeComponent();
         }

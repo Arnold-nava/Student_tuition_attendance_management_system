@@ -1,4 +1,4 @@
-﻿namespace student_management.forms.student
+﻿namespace student_management.forms.Admin
 {
     partial class AttendanceHistoryForm
     {

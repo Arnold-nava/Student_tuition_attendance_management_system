@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace student_management.forms.Auth
+namespace student_management.forms.Admin
 {
-    public partial class ForgotPasswordForm : Form
+    public partial class RecordsForm : Form
     {
-        public ForgotPasswordForm()
+        public RecordsForm()
         {
             InitializeComponent();
         }

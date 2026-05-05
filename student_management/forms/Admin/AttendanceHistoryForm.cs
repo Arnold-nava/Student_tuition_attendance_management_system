@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace student_management.forms.Admin
 {
-    public partial class StudentManagementForm : Form
+    public partial class AttendanceHistoryForm : Form
     {
-        public StudentManagementForm()
+        public AttendanceHistoryForm()
         {
             InitializeComponent();
         }

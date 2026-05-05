@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace student_management.forms.Admin
+namespace student_management.forms.student
 {
-    public partial class StudentManagementForm : Form
+    public partial class ProfileForm : Form
     {
-        public StudentManagementForm()
+        public ProfileForm()
         {
             InitializeComponent();
         }

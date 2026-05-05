@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace student_management.forms.Admin
+namespace student_management.forms.student
 {
-    public partial class PaymentForm : Form
+    public partial class StudentDashBoard : Form
     {
-        public PaymentForm()
+        public StudentDashBoard()
         {
             InitializeComponent();
         }

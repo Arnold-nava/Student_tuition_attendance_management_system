@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace student_management.forms.student
+namespace student_management.forms.Auth
 {
-    public partial class PaymentSuccessForm : Form
+    public partial class Register : Form
     {
-        public PaymentSuccessForm()
+        public Register()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
-﻿namespace student_management.forms.student
+﻿namespace student_management.forms.Auth
 {
-    partial class AttendanceHistoryForm
+    partial class Register
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "AttendanceHistoryForm";
+            this.Text = "Register";
         }
 
         #endregion
