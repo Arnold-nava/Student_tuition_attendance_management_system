@@ -35,21 +35,18 @@
             btnScanner = new FontAwesome.Sharp.IconButton();
             btnDaashboard = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
-            lblClassInfo = new Label();
-            lblSubject = new Label();
-            lblStatus = new Label();
-            picCamera = new PictureBox();
-            panel3 = new Panel();
-            lblStudentStatus = new Label();
-            lblStudentNo = new Label();
-            lblStudentName = new Label();
-            lblTimeIn = new Label();
-            btnTimeOut = new Button();
-            button2 = new Button();
+            dtpDate = new DateTimePicker();
+            cmbClass = new ComboBox();
+            btnRefresh = new Button();
+            txtSearch = new TextBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            dgvAttendance = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picCamera).BeginInit();
-            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAttendance).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -64,7 +61,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(176, 466);
             panel1.TabIndex = 2;
-            panel1.Paint += panel1_Paint;
             // 
             // button1
             // 
@@ -75,6 +71,7 @@
             button1.TabIndex = 1;
             button1.Text = "LogOut";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnAttendanceRecords
             // 
@@ -93,6 +90,7 @@
             btnAttendanceRecords.Text = "attendance record";
             btnAttendanceRecords.TextAlign = ContentAlignment.MiddleRight;
             btnAttendanceRecords.UseVisualStyleBackColor = true;
+            btnAttendanceRecords.Click += btnAttendanceRecords_Click;
             // 
             // btnStudentManagement
             // 
@@ -111,6 +109,7 @@
             btnStudentManagement.Text = "Manage Students";
             btnStudentManagement.TextAlign = ContentAlignment.MiddleRight;
             btnStudentManagement.UseVisualStyleBackColor = true;
+            btnStudentManagement.Click += btnStudentManagement_Click;
             // 
             // btnScanner
             // 
@@ -129,6 +128,7 @@
             btnScanner.Text = "Scanner";
             btnScanner.TextAlign = ContentAlignment.MiddleRight;
             btnScanner.UseVisualStyleBackColor = true;
+            btnScanner.Click += btnScanner_Click;
             // 
             // btnDaashboard
             // 
@@ -151,149 +151,126 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(lblStatus);
-            panel2.Controls.Add(lblSubject);
-            panel2.Controls.Add(lblClassInfo);
-            panel2.Location = new Point(300, 25);
+            panel2.Controls.Add(dtpDate);
+            panel2.Controls.Add(cmbClass);
+            panel2.Controls.Add(btnRefresh);
+            panel2.Controls.Add(txtSearch);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label2);
+            panel2.Location = new Point(186, 56);
             panel2.Name = "panel2";
-            panel2.Size = new Size(375, 83);
+            panel2.Size = new Size(660, 79);
             panel2.TabIndex = 3;
             // 
-            // lblClassInfo
+            // dtpDate
             // 
-            lblClassInfo.AutoSize = true;
-            lblClassInfo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClassInfo.Location = new Point(17, 12);
-            lblClassInfo.Name = "lblClassInfo";
-            lblClassInfo.Size = new Size(57, 21);
-            lblClassInfo.TabIndex = 0;
-            lblClassInfo.Text = "label1";
+            dtpDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpDate.Location = new Point(348, 28);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(152, 29);
+            dtpDate.TabIndex = 8;
+            dtpDate.ValueChanged += dtpDate_ValueChanged;
             // 
-            // lblSubject
+            // cmbClass
             // 
-            lblSubject.AutoSize = true;
-            lblSubject.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSubject.Location = new Point(17, 33);
-            lblSubject.Name = "lblSubject";
-            lblSubject.Size = new Size(45, 17);
-            lblSubject.TabIndex = 0;
-            lblSubject.Text = "label1";
+            cmbClass.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbClass.FormattingEnabled = true;
+            cmbClass.Location = new Point(190, 28);
+            cmbClass.Name = "cmbClass";
+            cmbClass.Size = new Size(152, 29);
+            cmbClass.TabIndex = 7;
+            cmbClass.SelectedIndexChanged += cmbClass_SelectedIndexChanged;
             // 
-            // lblStatus
+            // btnRefresh
             // 
-            lblStatus.AutoSize = true;
-            lblStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(17, 53);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(45, 17);
-            lblStatus.TabIndex = 0;
-            lblStatus.Text = "label1";
+            btnRefresh.BackColor = Color.DodgerBlue;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.Location = new Point(552, 27);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(97, 30);
+            btnRefresh.TabIndex = 6;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click_1;
             // 
-            // picCamera
+            // txtSearch
             // 
-            picCamera.BackColor = Color.Black;
-            picCamera.Location = new Point(300, 115);
-            picCamera.Name = "picCamera";
-            picCamera.Size = new Size(376, 188);
-            picCamera.TabIndex = 4;
-            picCamera.TabStop = false;
+            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(15, 28);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(169, 29);
+            txtSearch.TabIndex = 5;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
-            // panel3
+            // label4
             // 
-            panel3.Controls.Add(lblTimeIn);
-            panel3.Controls.Add(lblStudentStatus);
-            panel3.Controls.Add(lblStudentNo);
-            panel3.Controls.Add(lblStudentName);
-            panel3.Location = new Point(300, 309);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(375, 67);
-            panel3.TabIndex = 3;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(348, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 17);
+            label4.TabIndex = 4;
+            label4.Text = "Date";
             // 
-            // lblStudentStatus
+            // label3
             // 
-            lblStudentStatus.AutoSize = true;
-            lblStudentStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentStatus.Location = new Point(239, 33);
-            lblStudentStatus.Name = "lblStudentStatus";
-            lblStudentStatus.Size = new Size(45, 17);
-            lblStudentStatus.TabIndex = 0;
-            lblStudentStatus.Text = "label1";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(190, 8);
+            label3.Name = "label3";
+            label3.Size = new Size(39, 17);
+            label3.TabIndex = 4;
+            label3.Text = "Class";
             // 
-            // lblStudentNo
+            // label2
             // 
-            lblStudentNo.AutoSize = true;
-            lblStudentNo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentNo.Location = new Point(17, 33);
-            lblStudentNo.Name = "lblStudentNo";
-            lblStudentNo.Size = new Size(45, 17);
-            lblStudentNo.TabIndex = 0;
-            lblStudentNo.Text = "label1";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(15, 8);
+            label2.Name = "label2";
+            label2.Size = new Size(48, 17);
+            label2.TabIndex = 4;
+            label2.Text = "Search";
             // 
-            // lblStudentName
+            // label1
             // 
-            lblStudentName.AutoSize = true;
-            lblStudentName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentName.Location = new Point(17, 12);
-            lblStudentName.Name = "lblStudentName";
-            lblStudentName.Size = new Size(57, 21);
-            lblStudentName.TabIndex = 0;
-            lblStudentName.Text = "label1";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(186, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(182, 25);
+            label1.TabIndex = 4;
+            label1.Text = "Attendance Record";
             // 
-            // lblTimeIn
+            // dgvAttendance
             // 
-            lblTimeIn.AutoSize = true;
-            lblTimeIn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimeIn.Location = new Point(239, 16);
-            lblTimeIn.Name = "lblTimeIn";
-            lblTimeIn.Size = new Size(45, 17);
-            lblTimeIn.TabIndex = 0;
-            lblTimeIn.Text = "label1";
-            // 
-            // btnTimeOut
-            // 
-            btnTimeOut.BackColor = Color.LimeGreen;
-            btnTimeOut.FlatStyle = FlatStyle.Flat;
-            btnTimeOut.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTimeOut.Location = new Point(301, 397);
-            btnTimeOut.Name = "btnTimeOut";
-            btnTimeOut.Size = new Size(182, 44);
-            btnTimeOut.TabIndex = 5;
-            btnTimeOut.Text = "Time Out";
-            btnTimeOut.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.Control;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(494, 397);
-            button2.Name = "button2";
-            button2.Size = new Size(182, 44);
-            button2.TabIndex = 5;
-            button2.Text = "Time Out";
-            button2.UseVisualStyleBackColor = false;
+            dgvAttendance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAttendance.Location = new Point(187, 147);
+            dgvAttendance.Name = "dgvAttendance";
+            dgvAttendance.Size = new Size(662, 311);
+            dgvAttendance.TabIndex = 5;
             // 
             // AttendanceHistoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 465);
-            Controls.Add(button2);
-            Controls.Add(btnTimeOut);
-            Controls.Add(picCamera);
-            Controls.Add(panel3);
+            ClientSize = new Size(858, 465);
+            Controls.Add(dgvAttendance);
+            Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "AttendanceHistoryForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AttendanceHistoryForm";
             Load += AttendanceHistoryForm_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picCamera).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAttendance).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -305,16 +282,16 @@
         private FontAwesome.Sharp.IconButton btnScanner;
         private FontAwesome.Sharp.IconButton btnDaashboard;
         private Panel panel2;
-        private Label lblSubject;
-        private Label lblClassInfo;
-        private Label lblStatus;
-        private PictureBox picCamera;
-        private Panel panel3;
-        private Label lblTimeIn;
-        private Label lblStudentStatus;
-        private Label lblStudentNo;
-        private Label lblStudentName;
-        private Button btnTimeOut;
-        private Button button2;
+        private Button btnRefresh;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox txtSearch;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private DateTimePicker dtpDate;
+        private ComboBox cmbClass;
+        private DataGridView dgvAttendance;
     }
 }

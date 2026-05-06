@@ -177,6 +177,7 @@
             linkLabel3.TabIndex = 20;
             linkLabel3.TabStop = true;
             linkLabel3.Text = "Already Have Account?";
+            linkLabel3.LinkClicked += linkLabel3_LinkClicked;
             // 
             // Register
             // 
@@ -196,6 +197,7 @@
             Controls.Add(label1);
             Controls.Add(iconPictureBox1);
             Name = "Register";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Register";
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();

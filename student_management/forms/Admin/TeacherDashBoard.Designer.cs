@@ -291,6 +291,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "TeacherDashBoard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TeacherDashBoard";
             Load += TeacherDashBoard_Load;
             panel1.ResumeLayout(false);

@@ -67,7 +67,7 @@ namespace student_management.forms.Auth
 
                         MessageBox.Show("Login successful!");
 
-                        StudentDashBoard frm = new StudentDashBoard();
+                        StudentDashBoardForm frm = new StudentDashBoardForm();
                         frm.Show();
                         this.Hide();
                     }
@@ -140,6 +140,20 @@ namespace student_management.forms.Auth
             }
 
             reader.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register frm = new Register();
+            frm.Show();
+            this.Close();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword frm = new ForgotPassword();
+            frm.Show();
+            this.Close();
         }
     }
 }

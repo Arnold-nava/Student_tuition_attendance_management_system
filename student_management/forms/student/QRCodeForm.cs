@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using student_management.Helpers;
+using student_management.forms.Auth;
 
 namespace student_management.forms.student
 {
@@ -35,23 +36,11 @@ namespace student_management.forms.student
             this.Close();
         }
 
-        // 📷 MY QR (CURRENT PAGE)
-        private void btnMyQR_Click(object sender, EventArgs e)
-        {
-            // do nothing (already here)
-        }
-
-        // 📊 ATTENDANCE
-        private void btnAttendance_Click(object sender, EventArgs e)
-        {
-            new AttendanceHistoryForm().Show();
-            this.Close();
-        }
-
         // 👤 PROFILE
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            new ProfileForm().Show();
+            ProfileForm frm = new ProfileForm();
+            frm.Show();
             this.Close();
         }
 
@@ -59,14 +48,8 @@ namespace student_management.forms.student
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
-            new student_management.forms.Auth.Login().Show();
-            this.Close();
-        }
-
-        // 🔙 BACK (optional)
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            new StudentDashBoardForm().Show();
+            Login frm = new Login();
+            frm.Show();
             this.Close();
         }
 
@@ -76,6 +59,20 @@ namespace student_management.forms.student
 
         private void label1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnMyQR_Click(object sender, EventArgs e)
+        {
+            QRCodeForm frm = new QRCodeForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            AttendanceHistoryForm frm = new AttendanceHistoryForm();
+            frm.Show();
+            this.Close();
         }
     }
 }

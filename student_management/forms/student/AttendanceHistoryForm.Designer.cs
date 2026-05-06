@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             panelSidebar = new Panel();
-            label1 = new Label();
             btnLogout = new FontAwesome.Sharp.IconButton();
             btnProfile = new FontAwesome.Sharp.IconButton();
             btnAttendance = new FontAwesome.Sharp.IconButton();
             btnMyQR = new FontAwesome.Sharp.IconButton();
+            label3 = new Label();
             btnDashboard = new FontAwesome.Sharp.IconButton();
+            label1 = new Label();
             panel1 = new Panel();
-            btnBack = new Button();
+            label2 = new Label();
+            btnRefresh = new FontAwesome.Sharp.IconButton();
+            cbStatus = new ComboBox();
+            txtSearch = new TextBox();
             dgvAttendance = new DataGridView();
             panelSidebar.SuspendLayout();
             panel1.SuspendLayout();
@@ -46,11 +50,11 @@
             // panelSidebar
             // 
             panelSidebar.BackColor = Color.FromArgb(192, 255, 192);
-            panelSidebar.Controls.Add(label1);
             panelSidebar.Controls.Add(btnLogout);
             panelSidebar.Controls.Add(btnProfile);
             panelSidebar.Controls.Add(btnAttendance);
             panelSidebar.Controls.Add(btnMyQR);
+            panelSidebar.Controls.Add(label3);
             panelSidebar.Controls.Add(btnDashboard);
             panelSidebar.Dock = DockStyle.Left;
             panelSidebar.ForeColor = Color.Black;
@@ -60,29 +64,20 @@
             panelSidebar.TabIndex = 1;
             panelSidebar.Paint += panelSidebar_Paint;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(21, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 37);
-            label1.TabIndex = 1;
-            label1.Text = "STUDENT";
-            // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.FromArgb(128, 255, 128);
+            btnLogout.BackColor = Color.FromArgb(255, 192, 192);
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnLogout.ForeColor = Color.Green;
+            btnLogout.ForeColor = Color.Red;
             btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            btnLogout.IconColor = Color.Green;
+            btnLogout.IconColor = Color.Red;
             btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
             btnLogout.Location = new Point(12, 396);
             btnLogout.Name = "btnLogout";
+            btnLogout.Padding = new Padding(0, 2, 0, 0);
             btnLogout.Size = new Size(165, 42);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Logout";
@@ -128,6 +123,7 @@
             btnAttendance.Text = "Attendance";
             btnAttendance.TextAlign = ContentAlignment.MiddleRight;
             btnAttendance.UseVisualStyleBackColor = false;
+            btnAttendance.Click += btnAttendance_Click_1;
             // 
             // btnMyQR
             // 
@@ -147,6 +143,17 @@
             btnMyQR.Text = "QR code";
             btnMyQR.TextAlign = ContentAlignment.MiddleRight;
             btnMyQR.UseVisualStyleBackColor = false;
+            btnMyQR.Click += btnMyQR_Click_1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label3.Location = new Point(44, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 37);
+            label3.TabIndex = 1;
+            label3.Text = "Student";
             // 
             // btnDashboard
             // 
@@ -154,7 +161,7 @@
             btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnDashboard.ForeColor = Color.Green;
+            btnDashboard.ForeColor = Color.Black;
             btnDashboard.IconChar = FontAwesome.Sharp.IconChar.House;
             btnDashboard.IconColor = Color.Black;
             btnDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -166,33 +173,89 @@
             btnDashboard.Text = "Dashboard";
             btnDashboard.TextAlign = ContentAlignment.MiddleRight;
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click_1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label1.Location = new Point(6, 7);
+            label1.Name = "label1";
+            label1.Size = new Size(216, 30);
+            label1.TabIndex = 1;
+            label1.Text = "Attendance History";
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnBack);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(btnRefresh);
+            panel1.Controls.Add(cbStatus);
+            panel1.Controls.Add(txtSearch);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(dgvAttendance);
             panel1.Dock = DockStyle.Fill;
+            panel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             panel1.Location = new Point(200, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(600, 450);
             panel1.TabIndex = 2;
             // 
-            // btnBack
+            // label2
             // 
-            btnBack.Location = new Point(242, 322);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(75, 23);
-            btnBack.TabIndex = 1;
-            btnBack.Text = "button1";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += button1_Click;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.Location = new Point(408, 48);
+            label2.Name = "label2";
+            label2.Size = new Size(54, 19);
+            label2.TabIndex = 5;
+            label2.Text = "Status :";
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = SystemColors.HotTrack;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 10F);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            btnRefresh.IconColor = Color.White;
+            btnRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRefresh.IconSize = 25;
+            btnRefresh.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRefresh.Location = new Point(138, 42);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(84, 27);
+            btnRefresh.TabIndex = 4;
+            btnRefresh.Text = " Refresh";
+            btnRefresh.TextAlign = ContentAlignment.MiddleRight;
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click_1;
+            // 
+            // cbStatus
+            // 
+            cbStatus.FormattingEnabled = true;
+            cbStatus.Items.AddRange(new object[] { "" });
+            cbStatus.Location = new Point(467, 46);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(121, 23);
+            cbStatus.TabIndex = 3;
+            cbStatus.SelectedIndexChanged += cbStatus_SelectedIndexChanged;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 11F);
+            txtSearch.Location = new Point(6, 42);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search";
+            txtSearch.Size = new Size(126, 27);
+            txtSearch.TabIndex = 2;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // dgvAttendance
             // 
             dgvAttendance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAttendance.Location = new Point(170, 141);
+            dgvAttendance.Location = new Point(4, 75);
             dgvAttendance.Name = "dgvAttendance";
-            dgvAttendance.Size = new Size(240, 150);
+            dgvAttendance.Size = new Size(593, 372);
             dgvAttendance.TabIndex = 0;
             // 
             // AttendanceHistoryForm
@@ -203,11 +266,13 @@
             Controls.Add(panel1);
             Controls.Add(panelSidebar);
             Name = "AttendanceHistoryForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AttendanceHistoryForm";
             Load += AttendanceHistoryForm_Load;
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAttendance).EndInit();
             ResumeLayout(false);
         }
@@ -222,7 +287,11 @@
         private FontAwesome.Sharp.IconButton btnMyQR;
         private FontAwesome.Sharp.IconButton btnDashboard;
         private Panel panel1;
-        private Button btnBack;
         private DataGridView dgvAttendance;
+        private TextBox txtSearch;
+        private FontAwesome.Sharp.IconButton btnRefresh;
+        private ComboBox cbStatus;
+        private Label label2;
+        private Label label3;
     }
 }

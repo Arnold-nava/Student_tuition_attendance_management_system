@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
 using student_management.Helpers;
+using student_management.forms.Auth;
 
 namespace student_management.forms.student
 {
@@ -67,7 +68,8 @@ namespace student_management.forms.student
         // 🏠 DASHBOARD
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            new StudentDashBoardForm().Show();
+            StudentDashBoardForm frm = new StudentDashBoardForm();
+            frm.Show();
             this.Close();
         }
 
@@ -112,6 +114,31 @@ namespace student_management.forms.student
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
+            Session.Clear();
+            Login frm = new Login();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnMyQR_Click_1(object sender, EventArgs e)
+        {
+            QRCodeForm frm = new QRCodeForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnAttendance_Click_1(object sender, EventArgs e)
+        {
+            AttendanceHistoryForm frm = new AttendanceHistoryForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void btnProfile_Click_1(object sender, EventArgs e)
+        {
+            ProfileForm frm = new ProfileForm();
+            frm.Show();
+            this.Close();
         }
     }
 }

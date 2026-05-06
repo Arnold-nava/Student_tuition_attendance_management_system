@@ -35,34 +35,26 @@
             btnAttendance = new FontAwesome.Sharp.IconButton();
             btnMyQR = new FontAwesome.Sharp.IconButton();
             btnDashboard = new FontAwesome.Sharp.IconButton();
-            lblName = new Label();
-            lblStatus = new Label();
-            lblPending = new Label();
+            lblWelcome = new Label();
+            panelTodayStatus = new Panel();
+            iconStatus = new FontAwesome.Sharp.IconPictureBox();
             lblTimeOut = new Label();
-            lblTodayClass = new Label();
-            lblTotalAbsent = new Label();
-            lblLate = new Label();
-            lblStudentNo = new Label();
             lblTimeIn = new Label();
-            lblTotalPresent = new Label();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            panel4 = new Panel();
-            panel5 = new Panel();
-            panel6 = new Panel();
-            panel7 = new Panel();
-            panel8 = new Panel();
-            panel9 = new Panel();
+            lblStatus = new Label();
             label2 = new Label();
+            panel1 = new Panel();
+            panel3 = new Panel();
+            lblTotalPresent = new Label();
+            lblTotalAbsent = new Label();
+            lblTotalLate = new Label();
+            dgvSchedule = new DataGridView();
+            label3 = new Label();
             panelSidebar.SuspendLayout();
+            panelTodayStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconStatus).BeginInit();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
-            panel7.SuspendLayout();
-            panel8.SuspendLayout();
-            panel9.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSchedule).BeginInit();
             SuspendLayout();
             // 
             // panelSidebar
@@ -93,17 +85,18 @@
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.FromArgb(128, 255, 128);
+            btnLogout.BackColor = Color.FromArgb(255, 192, 192);
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnLogout.ForeColor = Color.Green;
+            btnLogout.ForeColor = Color.Red;
             btnLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            btnLogout.IconColor = Color.Green;
+            btnLogout.IconColor = Color.Red;
             btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
             btnLogout.Location = new Point(12, 396);
             btnLogout.Name = "btnLogout";
+            btnLogout.Padding = new Padding(0, 2, 0, 0);
             btnLogout.Size = new Size(165, 42);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Logout";
@@ -174,7 +167,6 @@
             // btnDashboard
             // 
             btnDashboard.BackColor = Color.FromArgb(128, 255, 128);
-            btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.Green;
@@ -191,225 +183,174 @@
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // lblName
+            // lblWelcome
             // 
-            lblName.AutoSize = true;
-            lblName.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblName.Location = new Point(521, 5);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(51, 20);
-            lblName.TabIndex = 3;
-            lblName.Text = "Name";
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcome.Location = new Point(22, 9);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(138, 21);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "Welcome, Guest!";
             // 
-            // lblStatus
+            // panelTodayStatus
             // 
-            lblStatus.AutoSize = true;
-            lblStatus.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblStatus.Location = new Point(215, 10);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(103, 19);
-            lblStatus.TabIndex = 4;
-            lblStatus.Text = "Today's Status";
+            panelTodayStatus.Controls.Add(iconStatus);
+            panelTodayStatus.Controls.Add(lblTimeOut);
+            panelTodayStatus.Controls.Add(lblTimeIn);
+            panelTodayStatus.Controls.Add(lblStatus);
+            panelTodayStatus.Controls.Add(label2);
+            panelTodayStatus.Location = new Point(17, 43);
+            panelTodayStatus.Name = "panelTodayStatus";
+            panelTodayStatus.Size = new Size(320, 134);
+            panelTodayStatus.TabIndex = 1;
             // 
-            // lblPending
+            // iconStatus
             // 
-            lblPending.AutoSize = true;
-            lblPending.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblPending.Location = new Point(35, 91);
-            lblPending.Name = "lblPending";
-            lblPending.Size = new Size(64, 19);
-            lblPending.TabIndex = 5;
-            lblPending.Text = "Pending";
+            iconStatus.BackColor = SystemColors.Control;
+            iconStatus.ForeColor = SystemColors.ControlText;
+            iconStatus.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconStatus.IconColor = SystemColors.ControlText;
+            iconStatus.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconStatus.IconSize = 80;
+            iconStatus.Location = new Point(203, 26);
+            iconStatus.Name = "iconStatus";
+            iconStatus.Size = new Size(80, 80);
+            iconStatus.TabIndex = 14;
+            iconStatus.TabStop = false;
             // 
             // lblTimeOut
             // 
             lblTimeOut.AutoSize = true;
-            lblTimeOut.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTimeOut.Location = new Point(221, 83);
+            lblTimeOut.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimeOut.Location = new Point(14, 86);
             lblTimeOut.Name = "lblTimeOut";
-            lblTimeOut.Size = new Size(66, 19);
-            lblTimeOut.TabIndex = 6;
-            lblTimeOut.Text = "TimeOut";
-            // 
-            // lblTodayClass
-            // 
-            lblTodayClass.AutoSize = true;
-            lblTodayClass.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTodayClass.Location = new Point(24, 16);
-            lblTodayClass.Name = "lblTodayClass";
-            lblTodayClass.Size = new Size(94, 21);
-            lblTodayClass.TabIndex = 7;
-            lblTodayClass.Text = "TodayClass";
-            // 
-            // lblTotalAbsent
-            // 
-            lblTotalAbsent.AutoSize = true;
-            lblTotalAbsent.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTotalAbsent.Location = new Point(25, 91);
-            lblTotalAbsent.Name = "lblTotalAbsent";
-            lblTotalAbsent.Size = new Size(88, 19);
-            lblTotalAbsent.TabIndex = 8;
-            lblTotalAbsent.Text = "TotalAbsent";
-            // 
-            // lblLate
-            // 
-            lblLate.AutoSize = true;
-            lblLate.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblLate.Location = new Point(43, 91);
-            lblLate.Name = "lblLate";
-            lblLate.Size = new Size(37, 19);
-            lblLate.TabIndex = 9;
-            lblLate.Text = "Late";
-            // 
-            // lblStudentNo
-            // 
-            lblStudentNo.AutoSize = true;
-            lblStudentNo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblStudentNo.Location = new Point(251, 5);
-            lblStudentNo.Name = "lblStudentNo";
-            lblStudentNo.Size = new Size(80, 19);
-            lblStudentNo.TabIndex = 10;
-            lblStudentNo.Text = "StudentNo";
+            lblTimeOut.Size = new Size(86, 21);
+            lblTimeOut.TabIndex = 0;
+            lblTimeOut.Text = "Time out :";
             // 
             // lblTimeIn
             // 
             lblTimeIn.AutoSize = true;
-            lblTimeIn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTimeIn.Location = new Point(221, 64);
+            lblTimeIn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimeIn.Location = new Point(14, 65);
             lblTimeIn.Name = "lblTimeIn";
-            lblTimeIn.Size = new Size(54, 19);
-            lblTimeIn.TabIndex = 11;
-            lblTimeIn.Text = "TimeIn";
+            lblTimeIn.Size = new Size(75, 21);
+            lblTimeIn.TabIndex = 0;
+            lblTimeIn.Text = "Time In :";
             // 
-            // lblTotalPresent
+            // lblStatus
             // 
-            lblTotalPresent.AutoSize = true;
-            lblTotalPresent.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTotalPresent.Location = new Point(24, 91);
-            lblTotalPresent.Name = "lblTotalPresent";
-            lblTotalPresent.Size = new Size(96, 19);
-            lblTotalPresent.TabIndex = 12;
-            lblTotalPresent.Text = "Total Present";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(panel8);
-            panel1.Controls.Add(panel6);
-            panel1.Controls.Add(panel7);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(panel9);
-            panel1.Controls.Add(panel5);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(200, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(600, 450);
-            panel1.TabIndex = 13;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(lblName);
-            panel2.Controls.Add(lblStudentNo);
-            panel2.Location = new Point(6, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(582, 33);
-            panel2.TabIndex = 14;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(lblStatus);
-            panel4.Controls.Add(lblTimeOut);
-            panel4.Controls.Add(lblTimeIn);
-            panel4.Location = new Point(19, 43);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(559, 106);
-            panel4.TabIndex = 14;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.White;
-            panel5.Controls.Add(lblTotalPresent);
-            panel5.Location = new Point(19, 155);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(135, 121);
-            panel5.TabIndex = 14;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.White;
-            panel6.Controls.Add(lblTotalAbsent);
-            panel6.Location = new Point(160, 155);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(134, 121);
-            panel6.TabIndex = 14;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.White;
-            panel7.Controls.Add(lblLate);
-            panel7.Location = new Point(300, 155);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(135, 121);
-            panel7.TabIndex = 14;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.White;
-            panel8.Controls.Add(lblPending);
-            panel8.Location = new Point(441, 155);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(137, 121);
-            panel8.TabIndex = 14;
-            // 
-            // panel9
-            // 
-            panel9.BackColor = Color.White;
-            panel9.Controls.Add(lblTodayClass);
-            panel9.Location = new Point(19, 282);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(559, 141);
-            panel9.TabIndex = 14;
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.Location = new Point(14, 35);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(94, 30);
+            lblStatus.TabIndex = 0;
+            lblStatus.Text = "Pending";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label2.Location = new Point(2, 4);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(5, 14);
             label2.Name = "label2";
-            label2.Size = new Size(109, 25);
-            label2.TabIndex = 4;
-            label2.Text = "DashBoard";
+            label2.Size = new Size(118, 21);
+            label2.TabIndex = 0;
+            label2.Text = "Today's Status";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(dgvSchedule);
+            panel1.Controls.Add(panelTodayStatus);
+            panel1.Controls.Add(lblWelcome);
+            panel1.Controls.Add(label3);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(200, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(683, 450);
+            panel1.TabIndex = 13;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(lblTotalPresent);
+            panel3.Controls.Add(lblTotalAbsent);
+            panel3.Controls.Add(lblTotalLate);
+            panel3.Location = new Point(17, 183);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(320, 75);
+            panel3.TabIndex = 3;
+            // 
+            // lblTotalPresent
+            // 
+            lblTotalPresent.AutoSize = true;
+            lblTotalPresent.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalPresent.Location = new Point(3, 6);
+            lblTotalPresent.Name = "lblTotalPresent";
+            lblTotalPresent.Size = new Size(117, 21);
+            lblTotalPresent.TabIndex = 0;
+            lblTotalPresent.Text = "TotalPresent : ";
+            // 
+            // lblTotalAbsent
+            // 
+            lblTotalAbsent.AutoSize = true;
+            lblTotalAbsent.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalAbsent.Location = new Point(3, 27);
+            lblTotalAbsent.Name = "lblTotalAbsent";
+            lblTotalAbsent.Size = new Size(113, 21);
+            lblTotalAbsent.TabIndex = 0;
+            lblTotalAbsent.Text = "TotalAbsent : ";
+            // 
+            // lblTotalLate
+            // 
+            lblTotalLate.AutoSize = true;
+            lblTotalLate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalLate.Location = new Point(3, 48);
+            lblTotalLate.Name = "lblTotalLate";
+            lblTotalLate.Size = new Size(92, 21);
+            lblTotalLate.TabIndex = 0;
+            lblTotalLate.Text = "TotalLate : ";
+            // 
+            // dgvSchedule
+            // 
+            dgvSchedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSchedule.Location = new Point(17, 292);
+            dgvSchedule.Name = "dgvSchedule";
+            dgvSchedule.Size = new Size(654, 146);
+            dgvSchedule.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(22, 268);
+            label3.Name = "label3";
+            label3.Size = new Size(192, 21);
+            label3.TabIndex = 0;
+            label3.Text = "Today's Class Scheedule";
             // 
             // StudentDashBoardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(883, 450);
             Controls.Add(panel1);
             Controls.Add(panelSidebar);
             Name = "StudentDashBoardForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StudentDashBoardForm";
             Load += StudentDashBoardForm_Load;
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
+            panelTodayStatus.ResumeLayout(false);
+            panelTodayStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconStatus).EndInit();
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
+            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSchedule).EndInit();
             ResumeLayout(false);
         }
 
@@ -422,24 +363,19 @@
         private FontAwesome.Sharp.IconButton btnAttendance;
         private FontAwesome.Sharp.IconButton btnMyQR;
         private FontAwesome.Sharp.IconButton btnDashboard;
-        private Label lblName;
-        private Label lblStatus;
-        private Label lblPending;
+        private Label lblWelcome;
+        private Panel panelTodayStatus;
         private Label lblTimeOut;
-        private Label lblTodayClass;
-        private Label lblTotalAbsent;
-        private Label lblLate;
-        private Label lblStudentNo;
         private Label lblTimeIn;
-        private Label lblTotalPresent;
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel8;
-        private Panel panel7;
-        private Panel panel6;
-        private Panel panel9;
-        private Panel panel5;
-        private Panel panel4;
+        private Label lblStatus;
         private Label label2;
+        private Panel panel1;
+        private Label lblTotalPresent;
+        private Label lblTotalAbsent;
+        private Panel panel3;
+        private Label lblTotalLate;
+        private DataGridView dgvSchedule;
+        private Label label3;
+        private FontAwesome.Sharp.IconPictureBox iconStatus;
     }
 }

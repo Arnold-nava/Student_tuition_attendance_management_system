@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using student_management.Helpers;
+using student_management.forms.Admin;
 
 
 namespace student_management.forms.Auth
@@ -129,7 +130,7 @@ namespace student_management.forms.Auth
 
                 MessageBox.Show("Registration successful!");
 
-                StudentDashBoard frm = new StudentDashBoard();
+                StudentDashBoardForm frm = new StudentDashBoardForm();
                 frm.Show();
                 this.Hide();
             }
@@ -141,6 +142,13 @@ namespace student_management.forms.Auth
             {
                 db.Close();
             }
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login frm = new Login();
+            frm.Show();
+            this.Close();
         }
     }
 }

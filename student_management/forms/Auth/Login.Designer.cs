@@ -116,6 +116,7 @@
             linkLabel1.TabIndex = 4;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Register account?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // linkLabel2
             // 
@@ -126,6 +127,7 @@
             linkLabel2.TabIndex = 4;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Forgot Password?";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // Login
             // 
@@ -141,6 +143,7 @@
             Controls.Add(label1);
             Controls.Add(iconPictureBox1);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);

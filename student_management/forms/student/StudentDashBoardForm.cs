@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using crud;
+using FontAwesome.Sharp;
 using MySql.Data.MySqlClient;
 using student_management.Helpers;
 
@@ -11,15 +14,107 @@ namespace student_management.forms.student
         public StudentDashBoardForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void StudentDashBoardForm_Load(object sender, EventArgs e)
         {
+            SetupScheduleTable();
             LoadDashboard();
         }
 
-        // 🔥 LOAD DASHBOARD DATA
+        private void SetupScheduleTable()
+        {
+            dgvSchedule.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSchedule.ReadOnly = true;
+            dgvSchedule.AllowUserToAddRows = false;
+            dgvSchedule.RowHeadersVisible = false;
+            dgvSchedule.BackgroundColor = Color.White;
+        }
+
         private void LoadDashboard()
+        {
+            LoadStudentInfo();
+            LoadTodayAttendance();
+            LoadAttendanceStats();
+            LoadTodaySchedule();
+        }
+
+        private void ApplyStatusUI(string status)
+        {
+            if (status == "Present")
+            {
+                lblStatus.Text = "Present";
+                lblStatus.ForeColor = Color.Green;
+
+                iconStatus.IconChar = IconChar.CircleCheck;
+                iconStatus.IconColor = Color.Green;
+
+                panelTodayStatus.BackColor = Color.FromArgb(220, 255, 220);
+            }
+            else if (status == "Absent")
+            {
+                lblStatus.Text = "Absent";
+                lblStatus.ForeColor = Color.Red;
+
+                iconStatus.IconChar = IconChar.CircleXmark;
+                iconStatus.IconColor = Color.Red;
+
+                panelTodayStatus.BackColor = Color.FromArgb(255, 220, 220);
+            }
+            else if (status == "Late")
+            {
+                lblStatus.Text = "Late";
+                lblStatus.ForeColor = Color.OrangeRed;
+
+                iconStatus.IconChar = IconChar.Clock;
+                iconStatus.IconColor = Color.OrangeRed;
+
+                panelTodayStatus.BackColor = Color.FromArgb(255, 240, 210);
+            }
+            else
+            {
+                lblStatus.Text = "Pending";
+                lblStatus.ForeColor = Color.Gray;
+
+                iconStatus.IconChar = IconChar.HourglassHalf;
+                iconStatus.IconColor = Color.Gray;
+
+                panelTodayStatus.BackColor = Color.White;
+            }
+        }
+
+        private void LoadStudentInfo()
+        {
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = "SELECT full_name FROM students WHERE user_id=@userId";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@userId", Session.userId);
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null)
+                    lblWelcome.Text = "Welcome, " + result.ToString() + "!";
+                else
+                    lblWelcome.Text = "Welcome, Student!";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Student info error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        private void LoadTodayAttendance()
         {
             DBConnect db = new DBConnect();
 
@@ -28,45 +123,53 @@ namespace student_management.forms.student
                 db.Open();
 
                 string query = @"
-                    SELECT 
-                        c.class_name,
-                        a.status,
-                        a.time_in,
-                        a.time_out
+                    SELECT a.status, a.time_in, a.time_out
                     FROM students s
-                    JOIN classes c ON s.class_id = c.id
-                    LEFT JOIN attendance a 
+                    LEFT JOIN attendance a
                         ON a.student_id = s.id
                         AND a.attendance_date = CURDATE()
-                    WHERE s.user_id = @user_id";
+                    WHERE s.user_id = @userId";
 
                 MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-                cmd.Parameters.AddWithValue("@user_id", Session.userId);
+                cmd.Parameters.AddWithValue("@userId", Session.userId);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    lblTodayClass.Text = reader["class_name"].ToString();
+                    if (reader["status"] == DBNull.Value)
+                    {
+                        ApplyStatusUI("Pending");
 
-                    lblStatus.Text = reader["status"] == DBNull.Value
-                        ? "Not Yet Scanned"
-                        : reader["status"].ToString();
+                        lblTimeIn.Text = "Time In: -";
+                        lblTimeOut.Text = "Time Out: -";
+                    }
+                    else
+                    {
+                        string status = reader["status"].ToString();
 
-                    lblTimeIn.Text = reader["time_in"] == DBNull.Value
-                        ? "--"
-                        : reader["time_in"].ToString();
+                        ApplyStatusUI(status);
 
-                    lblTimeOut.Text = reader["time_out"] == DBNull.Value
-                        ? "--"
-                        : reader["time_out"].ToString();
+                        lblTimeIn.Text = "Time In: " + reader["time_in"].ToString();
+
+                        if (reader["time_out"] == DBNull.Value ||
+                            reader["time_out"].ToString() == "")
+                        {
+                            lblTimeOut.Text = "Time Out: -";
+                        }
+                        else
+                        {
+                            lblTimeOut.Text = "Time Out: " +
+                                              reader["time_out"].ToString();
+                        }
+                    }
                 }
 
                 reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Dashboard Error: " + ex.Message);
+                MessageBox.Show("Attendance error: " + ex.Message);
             }
             finally
             {
@@ -74,15 +177,107 @@ namespace student_management.forms.student
             }
         }
 
-        // 🏠 DASHBOARD BUTTON (reload itself)
-        private void btnDashboard_Click(object sender, EventArgs e)
+        private void LoadAttendanceStats()
         {
-            StudentDashBoardForm frm = new StudentDashBoardForm();
-            frm.Show();
-            this.Close();
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = @"
+                    SELECT
+                        IFNULL(SUM(CASE WHEN a.status='Present' THEN 1 ELSE 0 END),0) AS present_count,
+                        IFNULL(SUM(CASE WHEN a.status='Absent' THEN 1 ELSE 0 END),0) AS absent_count,
+                        IFNULL(SUM(CASE WHEN a.status='Late' THEN 1 ELSE 0 END),0) AS late_count
+                    FROM students s
+                    LEFT JOIN attendance a ON a.student_id = s.id
+                    WHERE s.user_id = @userId";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+                cmd.Parameters.AddWithValue("@userId", Session.userId);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    lblTotalPresent.Text =
+                        "TotalPresent: " + reader["present_count"].ToString();
+
+                    lblTotalAbsent.Text =
+                        "TotalAbsent: " + reader["absent_count"].ToString();
+
+                    lblTotalLate.Text =
+                        "TotalLate: " + reader["late_count"].ToString();
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Stats error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
         }
 
-        // 📷 QR
+        private void LoadTodaySchedule()
+        {
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string today = DateTime.Now.DayOfWeek.ToString();
+
+                string query = @"
+                    SELECT
+                        sub.subject_name AS 'Subject',
+                        t.full_name AS 'Teacher',
+                        TIME_FORMAT(ts.start_time, '%h:%i %p') AS 'Start',
+                        TIME_FORMAT(ts.end_time, '%h:%i %p') AS 'End'
+                    FROM students s
+                    INNER JOIN teacher_subjects ts
+                        ON s.class_id = ts.class_id
+                    INNER JOIN subjects sub
+                        ON ts.subject_id = sub.id
+                    INNER JOIN teachers t
+                        ON ts.teacher_id = t.id
+                    WHERE s.user_id = @userId
+                    AND ts.day_of_week = @today
+                    ORDER BY ts.start_time ASC";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+
+                cmd.Parameters.AddWithValue("@userId", Session.userId);
+                cmd.Parameters.AddWithValue("@today", today);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                dgvSchedule.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Schedule error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            LoadDashboard();
+        }
+
         private void btnMyQR_Click(object sender, EventArgs e)
         {
             QRCodeForm frm = new QRCodeForm();
@@ -90,7 +285,6 @@ namespace student_management.forms.student
             this.Close();
         }
 
-        // 📊 ATTENDANCE
         private void btnAttendance_Click(object sender, EventArgs e)
         {
             AttendanceHistoryForm frm = new AttendanceHistoryForm();
@@ -98,7 +292,6 @@ namespace student_management.forms.student
             this.Close();
         }
 
-        // 👤 PROFILE
         private void btnProfile_Click(object sender, EventArgs e)
         {
             ProfileForm frm = new ProfileForm();
@@ -106,11 +299,12 @@ namespace student_management.forms.student
             this.Close();
         }
 
-        // 🚪 LOGOUT
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();
+
             new student_management.forms.Auth.Login().Show();
+
             this.Close();
         }
     }
