@@ -146,9 +146,6 @@ namespace student_management.forms.student
 
         private void btnDashboard_Click_1(object sender, EventArgs e)
         {
-            StudentDashBoardForm frm = new StudentDashBoardForm();
-            frm.Show();
-            this.Close();
         }
 
         private void btnMyQR_Click_1(object sender, EventArgs e)

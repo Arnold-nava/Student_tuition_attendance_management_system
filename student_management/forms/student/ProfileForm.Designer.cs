@@ -36,9 +36,14 @@
             btnMyQR = new FontAwesome.Sharp.IconButton();
             btnDashboard = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+<<<<<<< HEAD
             panel3 = new Panel();
             label8 = new Label();
             label7 = new Label();
+=======
+            label2 = new Label();
+            lblStatus = new Label();
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             lblClass = new Label();
             lblEmail = new Label();
             label3 = new Label();
@@ -48,7 +53,10 @@
             label4 = new Label();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             lblStudentNo = new Label();
+<<<<<<< HEAD
             lblStatus = new Label();
+=======
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             lblName = new Label();
             label2 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -187,9 +195,18 @@
             // 
             // panel1
             // 
+<<<<<<< HEAD
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label2);
+=======
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblStatus);
+            panel1.Controls.Add(lblClass);
+            panel1.Controls.Add(lblEmail);
+            panel1.Controls.Add(lblStudentNo);
+            panel1.Controls.Add(lblName);
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(200, 0);
             panel1.Name = "panel1";
@@ -197,6 +214,7 @@
             panel1.Size = new Size(600, 450);
             panel1.TabIndex = 2;
             // 
+<<<<<<< HEAD
             // panel3
             // 
             panel3.Controls.Add(label8);
@@ -228,24 +246,59 @@
             label7.Size = new Size(48, 19);
             label7.TabIndex = 4;
             label7.Text = "Email :";
+=======
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label2.Location = new Point(6, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 37);
+            label2.TabIndex = 1;
+            label2.Text = "Profile";
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblStatus.Location = new Point(105, 220);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(71, 28);
+            lblStatus.TabIndex = 4;
+            lblStatus.Text = "Status";
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             // 
             // lblClass
             // 
             lblClass.AutoSize = true;
+<<<<<<< HEAD
             lblClass.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblClass.Location = new Point(68, 81);
             lblClass.Name = "lblClass";
             lblClass.Size = new Size(48, 21);
+=======
+            lblClass.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblClass.Location = new Point(105, 183);
+            lblClass.Name = "lblClass";
+            lblClass.Size = new Size(59, 28);
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             lblClass.TabIndex = 3;
             lblClass.Text = "Class";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
+<<<<<<< HEAD
             lblEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblEmail.Location = new Point(55, 45);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(53, 21);
+=======
+            lblEmail.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblEmail.Location = new Point(105, 147);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(64, 28);
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email";
             // 
@@ -320,6 +373,7 @@
             // lblStudentNo
             // 
             lblStudentNo.AutoSize = true;
+<<<<<<< HEAD
             lblStudentNo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblStudentNo.Location = new Point(90, 119);
             lblStudentNo.Name = "lblStudentNo";
@@ -344,6 +398,22 @@
             lblName.Location = new Point(54, 87);
             lblName.Name = "lblName";
             lblName.Size = new Size(70, 30);
+=======
+            lblStudentNo.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblStudentNo.Location = new Point(105, 111);
+            lblStudentNo.Name = "lblStudentNo";
+            lblStudentNo.Size = new Size(114, 28);
+            lblStudentNo.TabIndex = 1;
+            lblStudentNo.Text = "student no";
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblName.Location = new Point(105, 69);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(64, 28);
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             lblName.TabIndex = 0;
             lblName.Text = "name";
             // 
@@ -398,6 +468,7 @@
         private Label lblName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+<<<<<<< HEAD
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private Label label2;
         private Panel panel3;
@@ -407,5 +478,8 @@
         private Label label6;
         private Label label5;
         private Label label4;
+=======
+        private Label label2;
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
     }
 }

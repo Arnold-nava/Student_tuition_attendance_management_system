@@ -37,11 +37,16 @@
             btnDashboard = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
             panel1 = new Panel();
+<<<<<<< HEAD
             label2 = new Label();
             btnRefresh = new FontAwesome.Sharp.IconButton();
             cbStatus = new ComboBox();
             txtSearch = new TextBox();
+=======
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             dgvAttendance = new DataGridView();
+            label2 = new Label();
+            iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             panelSidebar.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAttendance).BeginInit();
@@ -188,10 +193,13 @@
             // panel1
             // 
             panel1.Controls.Add(label2);
+<<<<<<< HEAD
             panel1.Controls.Add(btnRefresh);
             panel1.Controls.Add(cbStatus);
             panel1.Controls.Add(txtSearch);
             panel1.Controls.Add(label1);
+=======
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             panel1.Controls.Add(dgvAttendance);
             panel1.Dock = DockStyle.Fill;
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -200,6 +208,7 @@
             panel1.Size = new Size(600, 450);
             panel1.TabIndex = 2;
             // 
+<<<<<<< HEAD
             // label2
             // 
             label2.AutoSize = true;
@@ -256,7 +265,37 @@
             dgvAttendance.Location = new Point(4, 75);
             dgvAttendance.Name = "dgvAttendance";
             dgvAttendance.Size = new Size(593, 372);
+=======
+            // dgvAttendance
+            // 
+            dgvAttendance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAttendance.Location = new Point(15, 49);
+            dgvAttendance.Name = "dgvAttendance";
+            dgvAttendance.Size = new Size(573, 389);
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
             dgvAttendance.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label2.Location = new Point(15, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(261, 37);
+            label2.TabIndex = 1;
+            label2.Text = "Attendance Record";
+            // 
+            // iconSplitButton1
+            // 
+            iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconSplitButton1.IconColor = Color.Black;
+            iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconSplitButton1.IconSize = 48;
+            iconSplitButton1.Name = "iconSplitButton1";
+            iconSplitButton1.Rotation = 0D;
+            iconSplitButton1.Size = new Size(23, 23);
+            iconSplitButton1.Text = "iconSplitButton1";
             // 
             // AttendanceHistoryForm
             // 
@@ -288,10 +327,15 @@
         private FontAwesome.Sharp.IconButton btnDashboard;
         private Panel panel1;
         private DataGridView dgvAttendance;
+<<<<<<< HEAD
         private TextBox txtSearch;
         private FontAwesome.Sharp.IconButton btnRefresh;
         private ComboBox cbStatus;
         private Label label2;
         private Label label3;
+=======
+        private Label label2;
+        private FontAwesome.Sharp.IconSplitButton iconSplitButton1;
+>>>>>>> 0cf1ddb0df252d80de5fc991beffb7f57d224ab0
     }
 }
